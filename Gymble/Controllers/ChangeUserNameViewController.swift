@@ -10,11 +10,12 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import FirebaseDatabase
-protocol ChangeUserNameViewControllerDelegate {
+protocol SetNewUsername {
     func didUpdateUsername(firstName: String, lastName: String)
 }
+
 class ChangeUserNameViewController: UIViewController {
-    var usernameDelegate: ChangeUserNameViewControllerDelegate?
+    var usernameDelegate: SetNewUsername!
     fileprivate let changeUserNameLabel: UILabel = {
         let label = UILabel()
         label.text = "Change username"
@@ -145,15 +146,16 @@ class ChangeUserNameViewController: UIViewController {
                 "LastName": lastName
             ]
             Database.database().reference().child("Users").child(uid).updateChildValues(values)
+            displayChangedName(first: firstName, last: lastName)
+            NotificationCenter.default.post(name: .nameOnHome, object: nil, userInfo: values) 
             submitButton.hideLoading()
             dismiss(animated: true, completion: nil)
         }
     }
     
-    func displayChangedName(){
-        guard let firstName = firstNameField.text, let lastName = lastNameField.text else {return}
-        usernameDelegate!.didUpdateUsername(firstName: firstName, lastName: lastName)
+    func displayChangedName(first: String, last: String){
+        usernameDelegate.didUpdateUsername(firstName: first, lastName: last)
+        
     }
-    
     
 }

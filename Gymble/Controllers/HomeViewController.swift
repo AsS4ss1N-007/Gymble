@@ -12,7 +12,9 @@ import FirebaseAuth
 import FirebaseDatabase
 
 class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+    
     //MARK:- Properties
+    let profileVC = UserProfileViewController()
     private var gymsList: [GymsList]?
     var userData: User?{
         didSet{
@@ -84,7 +86,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         navigationBarButtons()
         homeCVLayout()
         setupHomeCollectionViewDelegates()
-        
+        profileVC.setUserNameOnHomeDelegate = self
     }
     
     private func setupNavigationBar(){
@@ -127,11 +129,15 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         homeCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
     }
     
+    func showUpdatedUserName(){
+        
+    }
+    
     //MARK:- ControllerFunctions
     
     @objc func showProfileVC(){
-        let profileVC = UserProfileViewController()
         self.navigationController?.pushViewController(profileVC, animated: true)
+        showUpdatedUserName()
     }
     
     //MARK:- FetchAPIs
@@ -215,5 +221,11 @@ class HeaderCell: UICollectionReusableView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension HomeViewController: SetUserNameOnHome{
+    func setUserNameOnHome(firstName: String) {
+        self.titleNameView.text = firstName
     }
 }

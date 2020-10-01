@@ -11,12 +11,11 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
-class UserProfileViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, ChangeUserNameViewControllerDelegate{
-    func didUpdateUsername(firstName: String, lastName: String) {
-        self.nameLabel.text = "\(firstName) \(lastName)"
-    }
-    
-    var changeUserNameVC: ChangeUserNameViewController?
+protocol SetUserNameOnHome {
+    func setUserNameOnHome(firstName: String)
+}
+class UserProfileViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, SetNewUsername{
+    var setUserNameOnHomeDelegate: SetUserNameOnHome!
     var userDetails: User?{
         didSet{
             guard let userProfile = userDetails?.userProfileImage else {return}
@@ -78,7 +77,6 @@ class UserProfileViewController: UIViewController, UICollectionViewDataSource, U
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        updateUserName()
     }
     
     func configureUI(){
@@ -93,9 +91,9 @@ class UserProfileViewController: UIViewController, UICollectionViewDataSource, U
         setupDelagates()
     }
     
-    func updateUserName(){
-        guard let controller = changeUserNameVC else {return}
-        controller.usernameDelegate = self
+    func didUpdateUsername(firstName: String, lastName: String) {
+        setUserNameOnHomeDelegate.setUserNameOnHome(firstName: firstName)
+        nameLabel.text = "\(firstName) \(lastName)"
     }
     
     private func setupDelagates(){
@@ -249,6 +247,7 @@ extension UserProfileViewController{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.item == 0{
             let changeUserNameVC = ChangeUserNameViewController()
+            changeUserNameVC.usernameDelegate = self
             self.present(changeUserNameVC, animated: true, completion: nil)
         }
         

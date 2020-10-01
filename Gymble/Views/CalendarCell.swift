@@ -10,7 +10,7 @@ import UIKit
 
 class CalendarCell: UICollectionViewCell {
     let darkGray = UIColor(red: 90/255, green: 90/255, blue: 90/255, alpha: 1)
-     let dateLabel: UILabel = {
+    let dateLabel: UILabel = {
         let label = UILabel()
         label.text = "21"
         label.font = UIFont(name: "Roboto-Medium", size: 40)
@@ -20,7 +20,7 @@ class CalendarCell: UICollectionViewCell {
         return label
     }()
     
-     let dayLabel: UILabel = {
+    let dayLabel: UILabel = {
         let label = UILabel()
         label.text = "Wed"
         label.font = UIFont(name: "Roboto-Regular", size: 18)
@@ -38,21 +38,19 @@ class CalendarCell: UICollectionViewCell {
         dayLabelLayout()
     }
     
-    override var isHighlighted: Bool {
-        didSet {
+    override var isHighlighted: Bool{
+        didSet{
+            backgroundColor = isHighlighted ? Colors.mainOrange : darkGray
             dateLabel.textColor = isHighlighted ? UIColor.white.withAlphaComponent(1) : UIColor.white.withAlphaComponent(0.6)
             dayLabel.textColor = isHighlighted ? UIColor.white.withAlphaComponent(1) : UIColor.white.withAlphaComponent(0.6)
-            contentView.backgroundColor = isHighlighted ? Colors.mainOrange : darkGray
-            contentView.layer.cornerRadius = isHighlighted ? 5 : 5
         }
     }
     
-    override var isSelected: Bool {
-        didSet {
+    override var isSelected: Bool{
+        didSet{
+            backgroundColor = isSelected ? Colors.mainOrange : darkGray
             dateLabel.textColor = isSelected ? UIColor.white.withAlphaComponent(1) : UIColor.white.withAlphaComponent(0.6)
             dayLabel.textColor = isSelected ? UIColor.white.withAlphaComponent(1) : UIColor.white.withAlphaComponent(0.6)
-            contentView.backgroundColor = isSelected ? Colors.mainOrange : darkGray
-            contentView.layer.cornerRadius = isSelected ? 5 : 5
         }
     }
     

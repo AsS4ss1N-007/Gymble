@@ -238,3 +238,8 @@ extension UITextField{
         view.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
     }
 }
+
+extension Notification.Name{
+    static let nameOnHome = Notification.Name("UserNameOnHome")
+    static let nameOnProfile = Notification.Name("UserNameOnProfile")
+}
