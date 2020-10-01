@@ -3,27 +3,99 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		188E02F52525C9D1007998AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E02F42525C9D1007998AE /* AppDelegate.swift */; };
 		188E02F72525C9D1007998AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E02F62525C9D1007998AE /* SceneDelegate.swift */; };
-		188E02F92525C9D1007998AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E02F82525C9D1007998AE /* ViewController.swift */; };
-		188E02FC2525C9D1007998AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 188E02FA2525C9D1007998AE /* Main.storyboard */; };
 		188E02FE2525C9D3007998AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 188E02FD2525C9D3007998AE /* Assets.xcassets */; };
 		188E03012525C9D3007998AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 188E02FF2525C9D3007998AE /* LaunchScreen.storyboard */; };
+		188E036B2525CF48007998AE /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E036A2525CF48007998AE /* Helpers.swift */; };
+		188E036F2525CF68007998AE /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E036E2525CF68007998AE /* CustomImageView.swift */; };
+		188E03722525CF8C007998AE /* APIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E03712525CF8C007998AE /* APIServices.swift */; };
+		188E03752525CFA6007998AE /* TimelineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E03742525CFA6007998AE /* TimelineModel.swift */; };
+		188E03782525CFAC007998AE /* GymbleModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E03772525CFAC007998AE /* GymbleModels.swift */; };
+		188E037B2525CFAF007998AE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E037A2525CFAF007998AE /* User.swift */; };
+		188E037E2525CFB1007998AE /* SlotBookingModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E037D2525CFB1007998AE /* SlotBookingModels.swift */; };
+		188E03832525CFF3007998AE /* NoMembershipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E03822525CFF3007998AE /* NoMembershipView.swift */; };
+		188E03862525CFF7007998AE /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E03852525CFF7007998AE /* HomeCollectionViewCell.swift */; };
+		188E03892525CFFA007998AE /* GymDetailsMenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E03882525CFFA007998AE /* GymDetailsMenuBar.swift */; };
+		188E038C2525CFFF007998AE /* OverviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E038B2525CFFE007998AE /* OverviewCell.swift */; };
+		188E038F2525D002007998AE /* AmenitiesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E038E2525D002007998AE /* AmenitiesCell.swift */; };
+		188E03922525D005007998AE /* TimingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E03912525D005007998AE /* TimingsCell.swift */; };
+		188E03952525D007007998AE /* TrainersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E03942525D007007998AE /* TrainersCell.swift */; };
+		188E03982525D00A007998AE /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E03972525D00A007998AE /* CalendarCell.swift */; };
+		188E039E2525D055007998AE /* TimelineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E039D2525D055007998AE /* TimelineCell.swift */; };
+		188E03A12525D057007998AE /* BookingTicket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E03A02525D057007998AE /* BookingTicket.swift */; };
+		188E03A42525D059007998AE /* UserProfileDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E03A32525D059007998AE /* UserProfileDetailsCell.swift */; };
+		188E03AB2525D131007998AE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E03AA2525D131007998AE /* LoginViewController.swift */; };
+		188E03AE2525D13D007998AE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E03AD2525D13D007998AE /* SignUpViewController.swift */; };
+		188E03B12525D147007998AE /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E03B02525D147007998AE /* ResetPasswordViewController.swift */; };
+		188E03B42525D15D007998AE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E03B32525D15D007998AE /* TabBarController.swift */; };
+		188E03B72525D16D007998AE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E03B62525D16D007998AE /* HomeViewController.swift */; };
+		188E03BA2525D177007998AE /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E03B92525D177007998AE /* ScheduleViewController.swift */; };
+		188E03BD2525D180007998AE /* GymDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E03BC2525D180007998AE /* GymDetailsViewController.swift */; };
+		188E03C02525D187007998AE /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E03BF2525D187007998AE /* TimelineViewController.swift */; };
+		188E03C32525D189007998AE /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E03C22525D189007998AE /* UserProfileViewController.swift */; };
+		188E03C62525D18D007998AE /* ChangeUserNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E03C52525D18D007998AE /* ChangeUserNameViewController.swift */; };
+		188E03CA2525D1BB007998AE /* ChangePhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E03C92525D1BB007998AE /* ChangePhoneViewController.swift */; };
+		188E03CD2525D1BD007998AE /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E03CC2525D1BD007998AE /* ScannerViewController.swift */; };
+		188E03CF2525D1C0007998AE /* FullScreenImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E03CE2525D1C0007998AE /* FullScreenImageViewController.swift */; };
+		188E03D52525D33A007998AE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 188E03D42525D33A007998AE /* Alamofire */; };
+		188E03D92525D3E8007998AE /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 188E03D82525D3E8007998AE /* IQKeyboardManagerSwift */; };
+		188E03DF2525D56D007998AE /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 188E03DC2525D56C007998AE /* Roboto-Light.ttf */; };
+		188E03E02525D56D007998AE /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 188E03DD2525D56C007998AE /* Roboto-Medium.ttf */; };
+		188E03E12525D56D007998AE /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 188E03DE2525D56D007998AE /* Roboto-Regular.ttf */; };
+		188E03E42525D6A0007998AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 188E03E32525D6A0007998AE /* GoogleService-Info.plist */; };
+		2B6CD32CB9D557B763E33D9A /* Pods_Gymble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40EFEBA195CB5CFF107BD7AA /* Pods_Gymble.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0CB9BD0083FDE4F7E94A1BDE /* Pods-Gymble.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gymble.release.xcconfig"; path = "Target Support Files/Pods-Gymble/Pods-Gymble.release.xcconfig"; sourceTree = "<group>"; };
 		188E02F12525C9D1007998AE /* Gymble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gymble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		188E02F42525C9D1007998AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		188E02F62525C9D1007998AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		188E02F82525C9D1007998AE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		188E02FB2525C9D1007998AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		188E02FD2525C9D3007998AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		188E03002525C9D3007998AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		188E03022525C9D3007998AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		188E036A2525CF48007998AE /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		188E036E2525CF68007998AE /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
+		188E03712525CF8C007998AE /* APIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServices.swift; sourceTree = "<group>"; };
+		188E03742525CFA6007998AE /* TimelineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineModel.swift; sourceTree = "<group>"; };
+		188E03772525CFAC007998AE /* GymbleModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymbleModels.swift; sourceTree = "<group>"; };
+		188E037A2525CFAF007998AE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		188E037D2525CFB1007998AE /* SlotBookingModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotBookingModels.swift; sourceTree = "<group>"; };
+		188E03822525CFF3007998AE /* NoMembershipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoMembershipView.swift; sourceTree = "<group>"; };
+		188E03852525CFF7007998AE /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		188E03882525CFFA007998AE /* GymDetailsMenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymDetailsMenuBar.swift; sourceTree = "<group>"; };
+		188E038B2525CFFE007998AE /* OverviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewCell.swift; sourceTree = "<group>"; };
+		188E038E2525D002007998AE /* AmenitiesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmenitiesCell.swift; sourceTree = "<group>"; };
+		188E03912525D005007998AE /* TimingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimingsCell.swift; sourceTree = "<group>"; };
+		188E03942525D007007998AE /* TrainersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainersCell.swift; sourceTree = "<group>"; };
+		188E03972525D00A007998AE /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
+		188E039D2525D055007998AE /* TimelineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineCell.swift; sourceTree = "<group>"; };
+		188E03A02525D057007998AE /* BookingTicket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingTicket.swift; sourceTree = "<group>"; };
+		188E03A32525D059007998AE /* UserProfileDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileDetailsCell.swift; sourceTree = "<group>"; };
+		188E03AA2525D131007998AE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		188E03AD2525D13D007998AE /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		188E03B02525D147007998AE /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		188E03B32525D15D007998AE /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		188E03B62525D16D007998AE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		188E03B92525D177007998AE /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		188E03BC2525D180007998AE /* GymDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymDetailsViewController.swift; sourceTree = "<group>"; };
+		188E03BF2525D187007998AE /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
+		188E03C22525D189007998AE /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		188E03C52525D18D007998AE /* ChangeUserNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeUserNameViewController.swift; sourceTree = "<group>"; };
+		188E03C92525D1BB007998AE /* ChangePhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePhoneViewController.swift; sourceTree = "<group>"; };
+		188E03CC2525D1BD007998AE /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		188E03CE2525D1C0007998AE /* FullScreenImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenImageViewController.swift; sourceTree = "<group>"; };
+		188E03DC2525D56C007998AE /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		188E03DD2525D56C007998AE /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		188E03DE2525D56D007998AE /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		188E03E32525D6A0007998AE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		40EFEBA195CB5CFF107BD7AA /* Pods_Gymble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gymble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC29076CD68021FA38829B78 /* Pods-Gymble.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gymble.debug.xcconfig"; path = "Target Support Files/Pods-Gymble/Pods-Gymble.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +103,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B6CD32CB9D557B763E33D9A /* Pods_Gymble.framework in Frameworks */,
+				188E03D52525D33A007998AE /* Alamofire in Frameworks */,
+				188E03D92525D3E8007998AE /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,8 +115,13 @@
 		188E02E82525C9D1007998AE = {
 			isa = PBXGroup;
 			children = (
+				188E03DC2525D56C007998AE /* Roboto-Light.ttf */,
+				188E03DD2525D56C007998AE /* Roboto-Medium.ttf */,
+				188E03DE2525D56D007998AE /* Roboto-Regular.ttf */,
 				188E02F32525C9D1007998AE /* Gymble */,
 				188E02F22525C9D1007998AE /* Products */,
+				C556E0043E62C15C675C236E /* Pods */,
+				EF3B46B6792D68D9D520998A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +136,110 @@
 		188E02F32525C9D1007998AE /* Gymble */ = {
 			isa = PBXGroup;
 			children = (
+				188E03672525CF11007998AE /* Controllers */,
+				188E03652525CEFF007998AE /* Views */,
+				188E03642525CEF3007998AE /* Models */,
+				188E03632525CEE2007998AE /* APIServices */,
+				188E03622525CED8007998AE /* Helpers */,
 				188E02F42525C9D1007998AE /* AppDelegate.swift */,
 				188E02F62525C9D1007998AE /* SceneDelegate.swift */,
-				188E02F82525C9D1007998AE /* ViewController.swift */,
-				188E02FA2525C9D1007998AE /* Main.storyboard */,
 				188E02FD2525C9D3007998AE /* Assets.xcassets */,
 				188E02FF2525C9D3007998AE /* LaunchScreen.storyboard */,
 				188E03022525C9D3007998AE /* Info.plist */,
+				188E03E32525D6A0007998AE /* GoogleService-Info.plist */,
 			);
 			path = Gymble;
+			sourceTree = "<group>";
+		};
+		188E03622525CED8007998AE /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				188E036A2525CF48007998AE /* Helpers.swift */,
+				188E036E2525CF68007998AE /* CustomImageView.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		188E03632525CEE2007998AE /* APIServices */ = {
+			isa = PBXGroup;
+			children = (
+				188E03712525CF8C007998AE /* APIServices.swift */,
+			);
+			path = APIServices;
+			sourceTree = "<group>";
+		};
+		188E03642525CEF3007998AE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				188E03772525CFAC007998AE /* GymbleModels.swift */,
+				188E037A2525CFAF007998AE /* User.swift */,
+				188E037D2525CFB1007998AE /* SlotBookingModels.swift */,
+				188E03742525CFA6007998AE /* TimelineModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		188E03652525CEFF007998AE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				188E03852525CFF7007998AE /* HomeCollectionViewCell.swift */,
+				188E03882525CFFA007998AE /* GymDetailsMenuBar.swift */,
+				188E038B2525CFFE007998AE /* OverviewCell.swift */,
+				188E038E2525D002007998AE /* AmenitiesCell.swift */,
+				188E03912525D005007998AE /* TimingsCell.swift */,
+				188E03942525D007007998AE /* TrainersCell.swift */,
+				188E03972525D00A007998AE /* CalendarCell.swift */,
+				188E03822525CFF3007998AE /* NoMembershipView.swift */,
+				188E039D2525D055007998AE /* TimelineCell.swift */,
+				188E03A02525D057007998AE /* BookingTicket.swift */,
+				188E03A32525D059007998AE /* UserProfileDetailsCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		188E03672525CF11007998AE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				188E03682525CF22007998AE /* Authentication */,
+				188E03B32525D15D007998AE /* TabBarController.swift */,
+				188E03B62525D16D007998AE /* HomeViewController.swift */,
+				188E03B92525D177007998AE /* ScheduleViewController.swift */,
+				188E03BC2525D180007998AE /* GymDetailsViewController.swift */,
+				188E03BF2525D187007998AE /* TimelineViewController.swift */,
+				188E03C22525D189007998AE /* UserProfileViewController.swift */,
+				188E03C52525D18D007998AE /* ChangeUserNameViewController.swift */,
+				188E03C92525D1BB007998AE /* ChangePhoneViewController.swift */,
+				188E03CC2525D1BD007998AE /* ScannerViewController.swift */,
+				188E03CE2525D1C0007998AE /* FullScreenImageViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		188E03682525CF22007998AE /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				188E03AA2525D131007998AE /* LoginViewController.swift */,
+				188E03AD2525D13D007998AE /* SignUpViewController.swift */,
+				188E03B02525D147007998AE /* ResetPasswordViewController.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		C556E0043E62C15C675C236E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FC29076CD68021FA38829B78 /* Pods-Gymble.debug.xcconfig */,
+				0CB9BD0083FDE4F7E94A1BDE /* Pods-Gymble.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		EF3B46B6792D68D9D520998A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				40EFEBA195CB5CFF107BD7AA /* Pods_Gymble.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,15 +249,21 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 188E03052525C9D3007998AE /* Build configuration list for PBXNativeTarget "Gymble" */;
 			buildPhases = (
+				E670637A9995D7ED1363889F /* [CP] Check Pods Manifest.lock */,
 				188E02ED2525C9D1007998AE /* Sources */,
 				188E02EE2525C9D1007998AE /* Frameworks */,
 				188E02EF2525C9D1007998AE /* Resources */,
+				1F00A214ECE4D1964B52403B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Gymble;
+			packageProductDependencies = (
+				188E03D42525D33A007998AE /* Alamofire */,
+				188E03D82525D3E8007998AE /* IQKeyboardManagerSwift */,
+			);
 			productName = Gymble;
 			productReference = 188E02F12525C9D1007998AE /* Gymble.app */;
 			productType = "com.apple.product-type.application";
@@ -110,6 +291,10 @@
 				Base,
 			);
 			mainGroup = 188E02E82525C9D1007998AE;
+			packageReferences = (
+				188E03D32525D33A007998AE /* XCRemoteSwiftPackageReference "Alamofire" */,
+				188E03D72525D3E8007998AE /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+			);
 			productRefGroup = 188E02F22525C9D1007998AE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -126,34 +311,101 @@
 			files = (
 				188E03012525C9D3007998AE /* LaunchScreen.storyboard in Resources */,
 				188E02FE2525C9D3007998AE /* Assets.xcassets in Resources */,
-				188E02FC2525C9D1007998AE /* Main.storyboard in Resources */,
+				188E03DF2525D56D007998AE /* Roboto-Light.ttf in Resources */,
+				188E03E02525D56D007998AE /* Roboto-Medium.ttf in Resources */,
+				188E03E12525D56D007998AE /* Roboto-Regular.ttf in Resources */,
+				188E03E42525D6A0007998AE /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1F00A214ECE4D1964B52403B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gymble/Pods-Gymble-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Gymble/Pods-Gymble-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Gymble/Pods-Gymble-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E670637A9995D7ED1363889F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Gymble-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		188E02ED2525C9D1007998AE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				188E02F92525C9D1007998AE /* ViewController.swift in Sources */,
+				188E03B72525D16D007998AE /* HomeViewController.swift in Sources */,
+				188E03AE2525D13D007998AE /* SignUpViewController.swift in Sources */,
+				188E03AB2525D131007998AE /* LoginViewController.swift in Sources */,
+				188E03782525CFAC007998AE /* GymbleModels.swift in Sources */,
+				188E03A12525D057007998AE /* BookingTicket.swift in Sources */,
+				188E03A42525D059007998AE /* UserProfileDetailsCell.swift in Sources */,
 				188E02F52525C9D1007998AE /* AppDelegate.swift in Sources */,
+				188E037E2525CFB1007998AE /* SlotBookingModels.swift in Sources */,
+				188E03922525D005007998AE /* TimingsCell.swift in Sources */,
+				188E03C32525D189007998AE /* UserProfileViewController.swift in Sources */,
+				188E036F2525CF68007998AE /* CustomImageView.swift in Sources */,
+				188E03B42525D15D007998AE /* TabBarController.swift in Sources */,
+				188E03C02525D187007998AE /* TimelineViewController.swift in Sources */,
+				188E03CF2525D1C0007998AE /* FullScreenImageViewController.swift in Sources */,
+				188E036B2525CF48007998AE /* Helpers.swift in Sources */,
+				188E03832525CFF3007998AE /* NoMembershipView.swift in Sources */,
+				188E03BA2525D177007998AE /* ScheduleViewController.swift in Sources */,
+				188E03752525CFA6007998AE /* TimelineModel.swift in Sources */,
+				188E03982525D00A007998AE /* CalendarCell.swift in Sources */,
+				188E038F2525D002007998AE /* AmenitiesCell.swift in Sources */,
+				188E03BD2525D180007998AE /* GymDetailsViewController.swift in Sources */,
+				188E038C2525CFFF007998AE /* OverviewCell.swift in Sources */,
+				188E039E2525D055007998AE /* TimelineCell.swift in Sources */,
+				188E03CD2525D1BD007998AE /* ScannerViewController.swift in Sources */,
+				188E03862525CFF7007998AE /* HomeCollectionViewCell.swift in Sources */,
+				188E03B12525D147007998AE /* ResetPasswordViewController.swift in Sources */,
+				188E03C62525D18D007998AE /* ChangeUserNameViewController.swift in Sources */,
+				188E037B2525CFAF007998AE /* User.swift in Sources */,
+				188E03892525CFFA007998AE /* GymDetailsMenuBar.swift in Sources */,
+				188E03CA2525D1BB007998AE /* ChangePhoneViewController.swift in Sources */,
+				188E03952525D007007998AE /* TrainersCell.swift in Sources */,
 				188E02F72525C9D1007998AE /* SceneDelegate.swift in Sources */,
+				188E03722525CF8C007998AE /* APIServices.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		188E02FA2525C9D1007998AE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				188E02FB2525C9D1007998AE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		188E02FF2525C9D3007998AE /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -283,12 +535,14 @@
 		};
 		188E03062525C9D3007998AE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FC29076CD68021FA38829B78 /* Pods-Gymble.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 24RH386RN6;
 				INFOPLIST_FILE = Gymble/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,12 +556,14 @@
 		};
 		188E03072525C9D3007998AE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0CB9BD0083FDE4F7E94A1BDE /* Pods-Gymble.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 24RH386RN6;
 				INFOPLIST_FILE = Gymble/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -341,6 +597,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		188E03D32525D33A007998AE /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.2.2;
+			};
+		};
+		188E03D72525D3E8007998AE /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.5.6;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		188E03D42525D33A007998AE /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 188E03D32525D33A007998AE /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		188E03D82525D3E8007998AE /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 188E03D72525D3E8007998AE /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 188E02E92525C9D1007998AE /* Project object */;
 }
