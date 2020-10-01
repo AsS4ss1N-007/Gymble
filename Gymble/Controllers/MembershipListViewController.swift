@@ -1,0 +1,280 @@
+//
+//  MembershipListViewController.swift
+//  Gymble
+//
+//  Created by Sachin's Macbook Pro on 01/10/20.
+//
+
+import UIKit
+import Razorpay
+import Firebase
+import Alamofire
+class MembershipListViewController: UIViewController, RazorpayProtocol{
+    weak var razorpay: RazorpayCheckout?
+    let rightNow = Date()
+    var gymID: String = ""
+    var userData: User?
+    var userID: String?
+    var selectedPrice: String?
+    var selectedPlan: Int?
+    var getMembership: GymMembershipPrices? {
+        didSet{
+            guard let gymName = getMembership?.gym_name else {return}
+            self.gymNameLabel.text = gymName
+            
+            rateCV.reloadData()
+        }
+    }
+    fileprivate let gymNameLabel: UILabel = {
+       let label = UILabel()
+        label.textColor = UIColor.white.withAlphaComponent(0.8)
+        label.font = UIFont(name: "Roboto-Regular", size: 22)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Crossfit fitness gym"
+        return label
+    }()
+    
+    fileprivate let seperator: UIView = {
+       let view = UIView()
+        view.backgroundColor = UIColor.white.withAlphaComponent(0.6)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    fileprivate let rateCV: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.register(MembershipListsCell.self, forCellWithReuseIdentifier: "Price")
+        collectionView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
+        collectionView.alwaysBounceVertical = true
+        return collectionView
+    }()
+    
+    fileprivate let buyMembershipButton: LoadingButton = {
+        let button = LoadingButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.cornerRadius = 25
+        button.setTitle("Buy Now", for: .normal)
+        button.titleLabel?.textColor = .white
+        button.tintColor = .white
+        button.titleLabel?.font = UIFont(name: "Roboto-Medium", size: 22)
+        button.layer.masksToBounds = true
+        button.addTarget(self, action: #selector(buyMembership), for: .touchUpInside)
+        return button
+    }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        buyMembershipButton.setGradientBackgroundOnBuyButtom(colorOne: Colors.mainRed, colorTwo: Colors.mainOrange)
+        fetchUserData()
+        razorpay = RazorpayCheckout.initWithKey("rzp_test_yIMCJ2EZJLwSwb", andDelegate: self)
+        getMembershipPrices()
+        view.backgroundColor = .black
+        setupNavigationBar()
+        gymNameLabelLayout()
+        seperatorLayout()
+        buyButtonLayout()
+        rateCVLayout()
+        setupCVDelegates()
+    }
+    
+    func fetchUserData(){
+        guard let userid = Auth.auth().currentUser?.uid else {return}
+        userID = userid
+        APIServices.sharedInstance.fetchUserData(uid: userid) { (getUserInfo) in
+            self.userData = getUserInfo
+        }
+    }
+    
+    func setupCVDelegates(){
+        rateCV.delegate = self
+        rateCV.dataSource = self
+    }
+    
+    private func buyButtonLayout(){
+        view.addSubview(buyMembershipButton)
+        buyMembershipButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        buyMembershipButton.widthAnchor.constraint(equalToConstant: 120).isActive = true
+        buyMembershipButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
+        buyMembershipButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+    }
+    
+    private func rateCVLayout(){
+        view.addSubview(rateCV)
+        rateCV.topAnchor.constraint(equalTo: seperator.bottomAnchor).isActive = true
+        rateCV.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
+        rateCV.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
+        rateCV.bottomAnchor.constraint(equalTo: buyMembershipButton.topAnchor, constant: -20).isActive = true
+    }
+    
+    private func seperatorLayout(){
+        view.addSubview(seperator)
+        seperator.topAnchor.constraint(equalTo: gymNameLabel.bottomAnchor, constant: 5).isActive = true
+        seperator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
+        seperator.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
+        seperator.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
+    }
+    
+    private func gymNameLabelLayout(){
+        view.addSubview(gymNameLabel)
+        gymNameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
+        gymNameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
+        gymNameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
+    }
+    
+    
+    private func setupNavigationBar(){
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationItem.title = "Memberships"
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.backgroundColor: UIColor.black]
+    }
+    
+    @objc func buyMembership(){
+                buyMembershipButton.showLoading()
+                guard let phone = userData?.phoneNumber else {
+                    buyMembershipButton.hideLoading()
+                    return
+                }
+                guard let email = userData?.email else {
+                    buyMembershipButton.hideLoading()
+                    return
+                }
+        
+                guard let membershipPrice = selectedPrice else {
+                    buyMembershipButton.hideLoading()
+                    return
+                }
+                let options: [String:Any] = [
+                    "amount" : "\(membershipPrice)00", //mandatory in paise like:- 1000 paise ==  10 rs
+                    "description": "purchase description",
+                    "image": UIImage(named: "Gymble")!,
+                    "name": "Gymble",
+                    "prefill": [
+                        "contact": phone,
+                        "email": email
+                    ],
+                    "theme": [
+                        "color": "#F2380F"
+                    ]
+                ]
+                razorpay?.open(options)
+                buyMembershipButton.hideLoading()
+    }
+    
+    private func getMembershipPrices(){
+        APIServices.sharedInstance.getGymMembershipPrices(gymID: gymID) { (getMembershipData) in
+            self.getMembership = getMembershipData
+        }
+    }
+}
+
+extension MembershipListViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if let count = getMembership?.subscriptions.count{
+            return count
+        }
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Price", for: indexPath) as! MembershipListsCell
+        if let rate = getMembership?.subscriptions[indexPath.item].price{
+            cell.rateLabel.text = rate
+        }
+        
+        if let time = getMembership?.subscriptions[indexPath.item].duration{
+            cell.timeLabel.text = time
+        }
+        
+        if indexPath.item == 1{
+            cell.perMonthLabel.text = "/4 months"
+        }
+        else if indexPath.item == 2{
+            cell.perMonthLabel.text = "/6 months"
+        }
+        else if indexPath.item == 3{
+            cell.perMonthLabel.text = "/year"
+        }
+        else{
+            cell.perMonthLabel.text = "/month"
+        }
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: rateCV.frame.size.width, height: 90)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as? MembershipListsCell
+        guard let price = cell?.rateLabel.text else {return}
+        selectedPrice = price
+        
+        guard let duration = cell?.timeLabel.text else {return}
+        if duration == "Monthly"{
+            selectedPlan = 30
+        } else if duration == "/4 months"{
+            selectedPlan = 120
+        }  else if duration == "/6 months"{
+            selectedPlan = 180
+        } else if duration == "/year"{
+            selectedPlan = 365
+        }else{
+            selectedPlan = nil
+        }
+    }
+}
+
+extension MembershipListViewController: RazorpayPaymentCompletionProtocol{
+    func onPaymentError(_ code: Int32, description str: String) {
+        let alert = UIAlertController(title: "Payment failed", message: "Error code: \(code) \(str)", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
+    func onPaymentSuccess(_ payment_id: String) {
+        let alert = UIAlertController(title: "Success", message: "Payment Successful", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(action)
+        let url = "http://13.233.119.231:3000/newSubscription"
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        guard let gymName = getMembership?.gym_name else {return}
+        guard let firstName = userData?.firstName else {return}
+        guard let lastName = userData?.lastName else {return}
+        guard let phoneNumber = userData?.phoneNumber else {return}
+        guard let plan = selectedPlan else {return}
+        guard let email = userData?.email else {return}
+        let modifiedDate = Calendar.current.date(byAdding: .day, value: plan, to: rightNow)!
+        let parameters: [String : Any] = [
+            "user_id": uid,
+            "customer_name": "\(firstName) \(lastName)",
+            "phone_no": phoneNumber,
+            "email": email,
+            "gym_id": gymID,
+            "gym_name": gymName,
+            "start_date": rightNow.convertToString(),
+            "end_date": modifiedDate.convertToString(),
+            "is_active": "true",
+        ]
+        print(parameters)
+        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: [:]).responseJSON {
+            response in
+            switch (response.result) {
+            case .success:
+                print(response)
+                break
+            case .failure:
+                print(Error.self)
+            }
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+    }
+}
+
+

@@ -6,7 +6,6 @@
 //  Copyright © 2020 Sachin's Macbook Pro. All rights reserved.
 //
 import UIKit
-import Razorpay
 import Alamofire
 import Firebase
 import FirebaseAuth
@@ -16,7 +15,6 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     var userData: User?
     var gymID: String = ""
     var gymDetails: GymDetails?
-    weak var razorpay: RazorpayCheckout?
     let rightNow = Date()
     let uid = Auth.auth().currentUser?.uid
     fileprivate let buyMembershipButton: LoadingButton = {
@@ -41,6 +39,7 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
         cv.isPagingEnabled = true
         cv.layer.cornerRadius = 5
         cv.showsHorizontalScrollIndicator = false
+        cv.backgroundColor = Colors.mainBlack
         cv.register(HeroCollectionViewCell.self, forCellWithReuseIdentifier: "Hero")
         return cv
     }()
@@ -80,7 +79,6 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchUserData()
-        razorpay = RazorpayCheckout.initWithKey("rzp_test_yIMCJ2EZJLwSwb", andDelegate: self)
         view.backgroundColor = .black
         buyMembershipButtonLayout()
         collectionViewDelegates()
@@ -168,39 +166,9 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     }
     
     @objc func processPayment(){
-        buyMembershipButton.showLoading()
-        guard let phone = userData?.phoneNumber else {
-            buyMembershipButton.hideLoading()
-            return
-        }
-        guard let email = userData?.email else {
-            buyMembershipButton.hideLoading()
-            return
-        }
-        
-        guard let membershipPrice = gymDetails?.subscription_fees else {
-            buyMembershipButton.hideLoading()
-            return
-        }
-        
-        print(phone)
-        print(email)
-        print(membershipPrice)
-        let options: [String:Any] = [
-            "amount" : "\(membershipPrice)00", //mandatory in paise like:- 1000 paise ==  10 rs
-            "description": "purchase description",
-            "image": UIImage(named: "Gymble")!,
-            "name": "Gymble",
-            "prefill": [
-                "contact": phone,
-                "email": email
-            ],
-            "theme": [
-                "color": "#F2380F"
-            ]
-        ]
-        razorpay?.open(options)
-        buyMembershipButton.hideLoading()
+        let membershipListVC = MembershipListViewController()
+        membershipListVC.gymID = gymID
+        navigationController?.pushViewController(membershipListVC, animated: true)
     }
     
     func fetchUserData(){
@@ -303,53 +271,3 @@ class HeroCollectionViewCell: UICollectionViewCell {
     }
     
 }
-
-extension GymDetailsViewController: RazorpayPaymentCompletionProtocol{
-    func onPaymentError(_ code: Int32, description str: String) {
-        let alert = UIAlertController(title: "Payment failed", message: "Error code: \(code) \(str)", preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-        alert.addAction(action)
-        self.present(alert, animated: true, completion: nil)
-        
-    }
-    
-    func onPaymentSuccess(_ payment_id: String) {
-        let alert = UIAlertController(title: "Success", message: "Payment Successful", preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-        alert.addAction(action)
-        let url = "http://13.233.119.231:3000/newSubscription"
-        guard let uid = Auth.auth().currentUser?.uid else {return}
-        guard let gymID = gymDetails?._id else {return}
-        guard let gymName = gymDetails?.gym_name else {return}
-        guard let firstName = userData?.firstName else {return}
-        guard let lastName = userData?.lastName else {return}
-        guard let phoneNumber = userData?.phoneNumber else {return}
-        guard let email = userData?.email else {return}
-        let modifiedDate = Calendar.current.date(byAdding: .day, value: 29, to: rightNow)!
-        let parameters: [String : Any] = [
-            "user_id": uid,
-            "customer_name": "\(firstName) \(lastName)",
-            "phone_no": phoneNumber,
-            "email": email,
-            "gym_id": gymID,
-            "gym_name": gymName,
-            "start_date": rightNow.convertToString(),
-            "end_date": modifiedDate.convertToString(),
-            "is_active": "true",
-        ]
-        print(parameters)
-        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: [:]).responseJSON {
-            response in
-            switch (response.result) {
-            case .success:
-                print(response)
-                break
-            case .failure:
-                print(Error.self)
-            }
-            self.present(alert, animated: true, completion: nil)
-        }
-        
-    }
-}
-

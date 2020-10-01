@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1818869525263E970025F796 /* MembershipListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1818869425263E970025F796 /* MembershipListViewController.swift */; };
+		181886982526517D0025F796 /* MembershipsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181886972526517D0025F796 /* MembershipsListCell.swift */; };
+		1818869B25265D7E0025F796 /* GymMembershipPrices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1818869A25265D7E0025F796 /* GymMembershipPrices.swift */; };
 		188E02F52525C9D1007998AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E02F42525C9D1007998AE /* AppDelegate.swift */; };
 		188E02F72525C9D1007998AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E02F62525C9D1007998AE /* SceneDelegate.swift */; };
 		188E02FE2525C9D3007998AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 188E02FD2525C9D3007998AE /* Assets.xcassets */; };
@@ -53,6 +56,9 @@
 
 /* Begin PBXFileReference section */
 		0CB9BD0083FDE4F7E94A1BDE /* Pods-Gymble.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gymble.release.xcconfig"; path = "Target Support Files/Pods-Gymble/Pods-Gymble.release.xcconfig"; sourceTree = "<group>"; };
+		1818869425263E970025F796 /* MembershipListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipListViewController.swift; sourceTree = "<group>"; };
+		181886972526517D0025F796 /* MembershipsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipsListCell.swift; sourceTree = "<group>"; };
+		1818869A25265D7E0025F796 /* GymMembershipPrices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymMembershipPrices.swift; sourceTree = "<group>"; };
 		188E02F12525C9D1007998AE /* Gymble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gymble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		188E02F42525C9D1007998AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		188E02F62525C9D1007998AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -175,6 +181,7 @@
 				188E037A2525CFAF007998AE /* User.swift */,
 				188E037D2525CFB1007998AE /* SlotBookingModels.swift */,
 				188E03742525CFA6007998AE /* TimelineModel.swift */,
+				1818869A25265D7E0025F796 /* GymMembershipPrices.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -193,6 +200,7 @@
 				188E039D2525D055007998AE /* TimelineCell.swift */,
 				188E03A02525D057007998AE /* BookingTicket.swift */,
 				188E03A32525D059007998AE /* UserProfileDetailsCell.swift */,
+				181886972526517D0025F796 /* MembershipsListCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -211,6 +219,7 @@
 				188E03C92525D1BB007998AE /* ChangePhoneViewController.swift */,
 				188E03CC2525D1BD007998AE /* ScannerViewController.swift */,
 				188E03CE2525D1C0007998AE /* FullScreenImageViewController.swift */,
+				1818869425263E970025F796 /* MembershipListViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -372,6 +381,7 @@
 				188E03AB2525D131007998AE /* LoginViewController.swift in Sources */,
 				188E03782525CFAC007998AE /* GymbleModels.swift in Sources */,
 				188E03A12525D057007998AE /* BookingTicket.swift in Sources */,
+				181886982526517D0025F796 /* MembershipsListCell.swift in Sources */,
 				188E03A42525D059007998AE /* UserProfileDetailsCell.swift in Sources */,
 				188E02F52525C9D1007998AE /* AppDelegate.swift in Sources */,
 				188E037E2525CFB1007998AE /* SlotBookingModels.swift in Sources */,
@@ -393,9 +403,11 @@
 				188E03CD2525D1BD007998AE /* ScannerViewController.swift in Sources */,
 				188E03862525CFF7007998AE /* HomeCollectionViewCell.swift in Sources */,
 				188E03B12525D147007998AE /* ResetPasswordViewController.swift in Sources */,
+				1818869525263E970025F796 /* MembershipListViewController.swift in Sources */,
 				188E03C62525D18D007998AE /* ChangeUserNameViewController.swift in Sources */,
 				188E037B2525CFAF007998AE /* User.swift in Sources */,
 				188E03892525CFFA007998AE /* GymDetailsMenuBar.swift in Sources */,
+				1818869B25265D7E0025F796 /* GymMembershipPrices.swift in Sources */,
 				188E03CA2525D1BB007998AE /* ChangePhoneViewController.swift in Sources */,
 				188E03952525D007007998AE /* TrainersCell.swift in Sources */,
 				188E02F72525C9D1007998AE /* SceneDelegate.swift in Sources */,

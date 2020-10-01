@@ -129,15 +129,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         homeCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
     }
     
-    func showUpdatedUserName(){
-        
-    }
-    
     //MARK:- ControllerFunctions
     
     @objc func showProfileVC(){
         self.navigationController?.pushViewController(profileVC, animated: true)
-        showUpdatedUserName()
     }
     
     //MARK:- FetchAPIs

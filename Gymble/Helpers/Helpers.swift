@@ -27,6 +27,21 @@ extension UIView {
     }
 }
 
+extension UIView {
+    
+    func setGradientBackgroundOnBuyButtom(colorOne: UIColor, colorTwo: UIColor) {
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = CGRect(x: 0, y: 0, width: 120, height: 50)
+        gradientLayer.colors = [colorOne.cgColor, colorTwo.cgColor]
+        gradientLayer.locations = [0.0, 1.0]
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.0)
+        
+        layer.insertSublayer(gradientLayer, at: 0)
+    }
+}
+
 class MainWindow: UIWindow {
     let mainWindow = UIApplication.shared.connectedScenes
         .filter({$0.activationState == .foregroundActive})
