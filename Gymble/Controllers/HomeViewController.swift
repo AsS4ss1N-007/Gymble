@@ -87,6 +87,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         homeCVLayout()
         setupHomeCollectionViewDelegates()
         profileVC.setUserNameOnHomeDelegate = self
+        profileVC.setUserProfileImageOnHomeDelegate = self
     }
     
     private func setupNavigationBar(){
@@ -219,7 +220,11 @@ class HeaderCell: UICollectionReusableView {
     }
 }
 
-extension HomeViewController: SetUserNameOnHome{
+extension HomeViewController: SetUserNameOnHome, SetUserProfileImageOnHome{
+    func setUserProfile(image: UIImage) {
+        self.userProfileImage.image = image
+    }
+    
     func setUserNameOnHome(firstName: String) {
         self.titleNameView.text = firstName
     }

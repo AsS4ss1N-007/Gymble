@@ -11,11 +11,15 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
+protocol SetUserProfileImageOnHome {
+    func setUserProfile(image: UIImage)
+}
 protocol SetUserNameOnHome {
     func setUserNameOnHome(firstName: String)
 }
 class UserProfileViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, SetNewUsername{
     var setUserNameOnHomeDelegate: SetUserNameOnHome!
+    var setUserProfileImageOnHomeDelegate: SetUserProfileImageOnHome!
     var userDetails: User?{
         didSet{
             guard let userProfile = userDetails?.userProfileImage else {return}
@@ -89,6 +93,10 @@ class UserProfileViewController: UIViewController, UICollectionViewDataSource, U
         nameLabelLayout()
         detailsCVLayout()
         setupDelagates()
+    }
+    
+    func updateProfileImage(image: UIImage){
+        setUserProfileImageOnHomeDelegate.setUserProfile(image: image)
     }
     
     func didUpdateUsername(firstName: String, lastName: String) {
@@ -268,6 +276,7 @@ extension UserProfileViewController: UIImagePickerControllerDelegate, UINavigati
         picker.dismiss(animated: true, completion: nil)
         guard let imageSelected = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {return}
         userProfileImage.image = imageSelected
+        updateProfileImage(image: imageSelected)
         guard let uid = Auth.auth().currentUser?.uid else {return}
         guard let imageData = imageSelected.jpegData(compressionQuality: 0.4) else {return}
         let storageRef = Storage.storage().reference(forURL: "gs://gymble-7eb1f.appspot.com")
