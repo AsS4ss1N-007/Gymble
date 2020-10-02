@@ -26,7 +26,7 @@ class MembershipListViewController: UIViewController, RazorpayProtocol{
         }
     }
     fileprivate let gymNameLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.textColor = UIColor.white.withAlphaComponent(0.8)
         label.font = UIFont(name: "Roboto-Regular", size: 22)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -35,7 +35,7 @@ class MembershipListViewController: UIViewController, RazorpayProtocol{
     }()
     
     fileprivate let seperator: UIView = {
-       let view = UIView()
+        let view = UIView()
         view.backgroundColor = UIColor.white.withAlphaComponent(0.6)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -132,35 +132,36 @@ class MembershipListViewController: UIViewController, RazorpayProtocol{
     }
     
     @objc func buyMembership(){
-                buyMembershipButton.showLoading()
-                guard let phone = userData?.phoneNumber else {
-                    buyMembershipButton.hideLoading()
-                    return
-                }
-                guard let email = userData?.email else {
-                    buyMembershipButton.hideLoading()
-                    return
-                }
+        buyMembershipButton.showLoading()
+        guard let phone = userData?.phoneNumber else {
+            buyMembershipButton.hideLoading()
+            return
+        }
+        guard let email = userData?.email else {
+            buyMembershipButton.hideLoading()
+            return
+        }
         
-                guard let membershipPrice = selectedPrice else {
-                    buyMembershipButton.hideLoading()
-                    return
-                }
-                let options: [String:Any] = [
-                    "amount" : "\(membershipPrice)00", //mandatory in paise like:- 1000 paise ==  10 rs
-                    "description": "purchase description",
-                    "image": UIImage(named: "Gymble")!,
-                    "name": "Gymble",
-                    "prefill": [
-                        "contact": phone,
-                        "email": email
-                    ],
-                    "theme": [
-                        "color": "#F2380F"
-                    ]
-                ]
-                razorpay?.open(options)
-                buyMembershipButton.hideLoading()
+        guard let membershipPrice = selectedPrice else {
+            buyMembershipButton.hideLoading()
+            return
+        }
+        guard let gymName = getMembership?.gym_name else {return}
+        let options: [String:Any] = [
+            "amount" : "\(membershipPrice)00", //mandatory in paise like:- 1000 paise ==  10 rs
+            "description": "Welcome tp the \(gymName)",
+            "image": UIImage(named: "Gymble")!,
+            "name": "Gymble",
+            "prefill": [
+                "contact": phone,
+                "email": email
+            ],
+            "theme": [
+                "color": "#F2380F"
+            ]
+        ]
+        razorpay?.open(options)
+        buyMembershipButton.hideLoading()
     }
     
     private func getMembershipPrices(){
@@ -205,7 +206,7 @@ extension MembershipListViewController: UICollectionViewDataSource, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: rateCV.frame.size.width, height: 90)
+        return CGSize(width: rateCV.frame.size.width - 8, height: 88)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

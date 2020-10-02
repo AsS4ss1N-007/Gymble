@@ -48,13 +48,15 @@ class UserProfileViewController: UIViewController, UICollectionViewDataSource, U
         return button
     }()
     
-    fileprivate let userProfileImage: CustomImageView = {
+    fileprivate lazy var userProfileImage: CustomImageView = {
         let image = CustomImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.backgroundColor = .white
         image.layer.cornerRadius = 60
         image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
+        image.isUserInteractionEnabled = true
+        image.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showFullScreenUserImage)))
         return image
     }()
     
@@ -93,6 +95,12 @@ class UserProfileViewController: UIViewController, UICollectionViewDataSource, U
         nameLabelLayout()
         detailsCVLayout()
         setupDelagates()
+    }
+    
+    @objc func showFullScreenUserImage(){
+        let fullScreenImageVC = FullScreenUserProfileImage()
+        fullScreenImageVC.userImage = userProfileImage.image
+        self.present(fullScreenImageVC, animated: true, completion: nil)
     }
     
     func updateProfileImage(image: UIImage){
@@ -308,5 +316,55 @@ extension UserProfileViewController: UIImagePickerControllerDelegate, UINavigati
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
+    }
+}
+
+class FullScreenUserProfileImage: UIViewController {
+    var userImage: UIImage?
+    fileprivate let imageView: UIImageView = {
+       let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.contentMode = .scaleAspectFit
+        return image
+    }()
+    
+    
+    fileprivate let cancelButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(#imageLiteral(resourceName: "Cancel").withRenderingMode(.alwaysOriginal), for: .normal)
+        button.layer.cornerRadius = 13
+        button.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
+        return button
+    }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = Colors.mainBlack
+        imageViewLayout()
+        guard let userPic = userImage else {return}
+        imageView.image = userPic
+        cancelButtonLayout()
+        
+    }
+    
+    private func imageViewLayout(){
+        view.addSubview(imageView)
+        imageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+    }
+    
+    private func cancelButtonLayout(){
+        view.addSubview(cancelButton)
+        cancelButton.heightAnchor.constraint(equalToConstant: 26).isActive = true
+        cancelButton.widthAnchor.constraint(equalToConstant: 26).isActive = true
+        cancelButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
+        cancelButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16).isActive = true
+    }
+    
+    @objc func handleDismiss(){
+        self.dismiss(animated: true, completion: nil)
     }
 }
