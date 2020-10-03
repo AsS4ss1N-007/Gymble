@@ -14,6 +14,6 @@ struct GymMembershipPrices: Codable {
 
 struct Prices: Codable {
     let _id: String?
-    let duration: String?
+    let duration: Int?
     let price: String?
 }

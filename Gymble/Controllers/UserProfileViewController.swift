@@ -340,11 +340,12 @@ class FullScreenUserProfileImage: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        cancelButtonLayout()
+        view.bringSubviewToFront(cancelButton)
         view.backgroundColor = Colors.mainBlack
         imageViewLayout()
         guard let userPic = userImage else {return}
         imageView.image = userPic
-        cancelButtonLayout()
         
     }
     

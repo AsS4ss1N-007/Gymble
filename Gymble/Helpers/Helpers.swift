@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 struct Colors {
     static let mainOrange = UIColor(red: 242/255, green: 56/255, blue: 15/255, alpha: 1)
     static let mainRed = UIColor(red: 217/255, green: 30/255, blue: 133/255, alpha: 1)
@@ -257,4 +258,15 @@ extension UITextField{
 extension Notification.Name{
     static let nameOnHome = Notification.Name("UserNameOnHome")
     static let nameOnProfile = Notification.Name("UserNameOnProfile")
+}
+
+extension AppDelegate{
+func signOutOldUser(){
+    if let _ = UserDefaults.standard.value(forKey: "isNewuser"){}else{
+        do{
+            UserDefaults.standard.set(true, forKey: "isNewuser")
+            try Auth.auth().signOut()
+        }catch{}
+    }
+}
 }
