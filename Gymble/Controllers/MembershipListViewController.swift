@@ -207,22 +207,17 @@ extension MembershipListViewController: UICollectionViewDataSource, UICollection
         
         if indexPath.item == 0{
             selectedPlan = (1 * 30)
-            print(selectedPlan)
         }
         else if indexPath.item == 1{
             selectedPlan = (3 * 30)
-            print(selectedPlan)
         }
         else if indexPath.item == 2{
             selectedPlan = (6 * 30)
-            print(selectedPlan)
         }
         else if indexPath.item == 3{
             selectedPlan = (12 * 30)
-            print(selectedPlan)
         }else{
             selectedPlan = 0
-            print(selectedPlan)
         }
     }
 }
