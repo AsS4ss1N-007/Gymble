@@ -68,7 +68,7 @@ class MembershipListViewController: UIViewController, RazorpayProtocol{
         super.viewDidLoad()
         buyMembershipButton.setGradientBackgroundOnBuyButtom(colorOne: Colors.mainRed, colorTwo: Colors.mainOrange)
         fetchUserData()
-        razorpay = RazorpayCheckout.initWithKey("rzp_test_yIMCJ2EZJLwSwb", andDelegate: self)
+        razorpay = RazorpayCheckout.initWithKey("rzp_test_qaECT1O3pNxLVn", andDelegate: self)
         getMembershipPrices()
         view.backgroundColor = .black
         setupNavigationBar()
