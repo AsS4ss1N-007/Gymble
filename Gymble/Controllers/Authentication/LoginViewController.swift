@@ -39,8 +39,8 @@ class LoginViewController: UIViewController {
         return logo
     }()
     
-    fileprivate let loginButton: UIButton = {
-        let button = UIButton(type: .system)
+    fileprivate let loginButton: LoadingButton = {
+        let button = LoadingButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.clipsToBounds = true
         button.setImage(#imageLiteral(resourceName: "LoginButton").withRenderingMode(.alwaysOriginal), for: .normal)
@@ -177,9 +177,15 @@ class LoginViewController: UIViewController {
     // MARK:- Selectors
     
     @objc func handleLogin(){
+        loginButton.showLoading()
         passwordTextField.resignFirstResponder()
-        guard let email = emailTextField.text else {return}
-        guard let password = passwordTextField.text else {return}
+        guard let email = emailTextField.text else {
+            loginButton.hideLoading()
+            return
+        }
+        guard let password = passwordTextField.text else {
+            loginButton.hideLoading()
+            return}
         let alert = UIAlertController(title: "Invalid credentials", message: "You have entered invalid details to login in. Please check and enter again.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         Auth.auth().signIn(withEmail: email, password: password) { (authResult, err) in
@@ -187,21 +193,25 @@ class LoginViewController: UIViewController {
                 print(error.localizedDescription)
                 if error.localizedDescription == "There is no user record corresponding to this identifier. The user may have been deleted."{
                     self.emailTextField.shake()
+                    self.loginButton.hideLoading()
                     self.present(alert, animated: true, completion: nil)
                     return
                 }else if error.localizedDescription == "The password is invalid or the user does not have a password."{
                     self.passwordTextField.shake()
+                    self.loginButton.hideLoading()
                     self.present(alert, animated: true, completion: nil)
                     return
                 }else {
                     self.emailTextField.shake()
                     self.passwordTextField.shake()
+                    self.loginButton.hideLoading()
                     self.present(alert, animated: true, completion: nil)
                     return
                 }
             }
             guard let tabBarController = MainWindow().mainWindow?.rootViewController as? TabBarController else {return}
             tabBarController.configureTabBarController()
+            self.loginButton.hideLoading()
             self.dismiss(animated: true, completion: nil)
             
         }

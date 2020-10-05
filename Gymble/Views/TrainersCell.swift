@@ -47,14 +47,18 @@ class TrainersCell: UICollectionViewCell, UICollectionViewDataSource, UICollecti
 
 extension TrainersCell{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        if let count = trainerData?.Trainers?.count{
+            return count
+        }
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Trainers", for: indexPath) as! Trainers
-        if let image = trainerData?.Trainers?[indexPath.item].trainer_image, let name = trainerData?.Trainers?[indexPath.item].trainer_name{
+        if let image = trainerData?.Trainers?[indexPath.item].trainer_image, let name = trainerData?.Trainers?[indexPath.item].trainer_name, let proIn = trainerData?.Trainers?[indexPath.item].trainer_description{
             cell.imageView.loadImageUsingUrlString(urlString: image)
             cell.nameLabel.text = name
+            cell.proInLabel.text = "\(proIn) Trainer"
         }
         return cell
     }
@@ -82,7 +86,7 @@ class Trainers: UICollectionViewCell {
         label.textAlignment = .center
         label.textColor = UIColor.white.withAlphaComponent(0.8)
         label.font = UIFont(name: "Roboto-Regular", size: 20)
-        label.text = "Sangram Singh"
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
@@ -92,7 +96,6 @@ class Trainers: UICollectionViewCell {
         label.textAlignment = .center
         label.textColor = UIColor.white
         label.font = UIFont(name: "Roboto-LightItalic", size: 18)
-        label.text = "Male trainer"
         return label
     }()
     

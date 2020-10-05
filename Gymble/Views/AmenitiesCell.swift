@@ -80,6 +80,7 @@ class Amenities: UICollectionViewCell {
         image.translatesAutoresizingMaskIntoConstraints = false
         image.layer.cornerRadius = 5
         image.backgroundColor = Colors.mainBlack
+        image.clipsToBounds = true
         return image
     }()
     
@@ -89,6 +90,7 @@ class Amenities: UICollectionViewCell {
         label.font = UIFont(name: "Roboto-Light", size: 16)
         label.textAlignment = .center
         label.textColor = UIColor.white
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
