@@ -16,6 +16,7 @@ class AmenitiesCell: UICollectionViewCell, UICollectionViewDelegate, UICollectio
     }
     private let amenityCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 5
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.translatesAutoresizingMaskIntoConstraints = false
         cv.register(Amenities.self, forCellWithReuseIdentifier: "Amenities")
@@ -87,7 +88,7 @@ class Amenities: UICollectionViewCell {
      let amenityLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(name: "Roboto-Light", size: 16)
+        label.font = UIFont(name: "Roboto-Regular", size: 16)
         label.textAlignment = .center
         label.textColor = UIColor.white
         label.adjustsFontSizeToFitWidth = true
@@ -102,15 +103,15 @@ class Amenities: UICollectionViewCell {
     
     private func amenityImageLayout(){
         addSubview(amenityImage)
-        amenityImage.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        amenityImage.topAnchor.constraint(equalTo: topAnchor, constant: 5).isActive = true
         amenityImage.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         amenityImage.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        amenityImage.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20).isActive = true
+        amenityImage.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -25).isActive = true
     }
     
     private func amenityLabelLayout(){
         addSubview(amenityLabel)
-        amenityLabel.topAnchor.constraint(equalTo: amenityImage.bottomAnchor).isActive = true
+        amenityLabel.topAnchor.constraint(equalTo: amenityImage.bottomAnchor, constant: 5).isActive = true
         amenityLabel.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         amenityLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         amenityLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true

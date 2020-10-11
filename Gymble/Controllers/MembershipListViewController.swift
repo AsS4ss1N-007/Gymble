@@ -125,10 +125,8 @@ class MembershipListViewController: UIViewController, RazorpayProtocol{
     
     
     private func setupNavigationBar(){
-        self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.title = "Memberships"
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.backgroundColor: UIColor.black]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
     
     @objc func buyMembership(){

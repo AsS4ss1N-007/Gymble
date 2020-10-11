@@ -35,7 +35,7 @@ class TimingsCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionV
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor.white.withAlphaComponent(0.8)
         label.font = UIFont(name: "Roboto-Medium", size: 18)
-        label.text = "Morning"
+        label.text = "Morning slots"
         return label
     }()
     
@@ -45,7 +45,7 @@ class TimingsCell: UICollectionViewCell, UICollectionViewDelegate, UICollectionV
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor.white.withAlphaComponent(0.8)
         label.font = UIFont(name: "Roboto-Medium", size: 18)
-        label.text = "Evening"
+        label.text = "Evening slots"
         return label
     }()
     
