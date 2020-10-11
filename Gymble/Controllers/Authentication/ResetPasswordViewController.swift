@@ -19,6 +19,7 @@ class ResetPasswordViewController: UIViewController {
         textField.autocorrectionType = .no
         textField.backgroundColor = UIColor.white
         textField.setLeftPaddingPoints(15)
+        textField.textColor = .black
         return textField
     }()
     
