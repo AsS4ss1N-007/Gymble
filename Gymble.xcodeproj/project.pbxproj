@@ -10,6 +10,7 @@
 		1818869525263E970025F796 /* MembershipListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1818869425263E970025F796 /* MembershipListViewController.swift */; };
 		181886982526517D0025F796 /* MembershipsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181886972526517D0025F796 /* MembershipsListCell.swift */; };
 		1818869B25265D7E0025F796 /* GymMembershipPrices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1818869A25265D7E0025F796 /* GymMembershipPrices.swift */; };
+		1847D6212539A8EF00A74467 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1847D6202539A8EF00A74467 /* GoogleService-Info.plist */; };
 		188E02F52525C9D1007998AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E02F42525C9D1007998AE /* AppDelegate.swift */; };
 		188E02F72525C9D1007998AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E02F62525C9D1007998AE /* SceneDelegate.swift */; };
 		188E02FE2525C9D3007998AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 188E02FD2525C9D3007998AE /* Assets.xcassets */; };
@@ -50,7 +51,6 @@
 		188E03DF2525D56D007998AE /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 188E03DC2525D56C007998AE /* Roboto-Light.ttf */; };
 		188E03E02525D56D007998AE /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 188E03DD2525D56C007998AE /* Roboto-Medium.ttf */; };
 		188E03E12525D56D007998AE /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 188E03DE2525D56D007998AE /* Roboto-Regular.ttf */; };
-		188E03E42525D6A0007998AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 188E03E32525D6A0007998AE /* GoogleService-Info.plist */; };
 		2B6CD32CB9D557B763E33D9A /* Pods_Gymble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40EFEBA195CB5CFF107BD7AA /* Pods_Gymble.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +59,7 @@
 		1818869425263E970025F796 /* MembershipListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipListViewController.swift; sourceTree = "<group>"; };
 		181886972526517D0025F796 /* MembershipsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipsListCell.swift; sourceTree = "<group>"; };
 		1818869A25265D7E0025F796 /* GymMembershipPrices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymMembershipPrices.swift; sourceTree = "<group>"; };
+		1847D6202539A8EF00A74467 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		188E02F12525C9D1007998AE /* Gymble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gymble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		188E02F42525C9D1007998AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		188E02F62525C9D1007998AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,7 +100,6 @@
 		188E03DC2525D56C007998AE /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		188E03DD2525D56C007998AE /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		188E03DE2525D56D007998AE /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
-		188E03E32525D6A0007998AE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		40EFEBA195CB5CFF107BD7AA /* Pods_Gymble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gymble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC29076CD68021FA38829B78 /* Pods-Gymble.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gymble.debug.xcconfig"; path = "Target Support Files/Pods-Gymble/Pods-Gymble.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -152,7 +152,7 @@
 				188E02FD2525C9D3007998AE /* Assets.xcassets */,
 				188E02FF2525C9D3007998AE /* LaunchScreen.storyboard */,
 				188E03022525C9D3007998AE /* Info.plist */,
-				188E03E32525D6A0007998AE /* GoogleService-Info.plist */,
+				1847D6202539A8EF00A74467 /* GoogleService-Info.plist */,
 			);
 			path = Gymble;
 			sourceTree = "<group>";
@@ -320,10 +320,10 @@
 			files = (
 				188E03012525C9D3007998AE /* LaunchScreen.storyboard in Resources */,
 				188E02FE2525C9D3007998AE /* Assets.xcassets in Resources */,
+				1847D6212539A8EF00A74467 /* GoogleService-Info.plist in Resources */,
 				188E03DF2525D56D007998AE /* Roboto-Light.ttf in Resources */,
 				188E03E02525D56D007998AE /* Roboto-Medium.ttf in Resources */,
 				188E03E12525D56D007998AE /* Roboto-Regular.ttf in Resources */,
-				188E03E42525D6A0007998AE /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,7 +480,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -535,7 +535,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -554,16 +554,16 @@
 				CODE_SIGN_ENTITLEMENTS = Gymble/Gymble.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.6;
+				CURRENT_PROJECT_VERSION = 1.0;
 				DEVELOPMENT_TEAM = 24RH386RN6;
 				INFOPLIST_FILE = Gymble/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "in.gymble.Gymble-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = in.gymble.gymbleios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -580,16 +580,16 @@
 				CODE_SIGN_ENTITLEMENTS = Gymble/Gymble.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.6;
+				CURRENT_PROJECT_VERSION = 1.0;
 				DEVELOPMENT_TEAM = 24RH386RN6;
 				INFOPLIST_FILE = Gymble/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "in.gymble.Gymble-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = in.gymble.gymbleios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

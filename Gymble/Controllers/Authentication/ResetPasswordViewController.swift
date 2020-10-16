@@ -7,19 +7,21 @@
 //
 
 import UIKit
-
+import Firebase
 class ResetPasswordViewController: UIViewController {
     fileprivate let resetPasswordTextField: UITextField = {
-       let textField = UITextField()
-        textField.font = UIFont(name: "Roboto-Regular", size: 18)
-        textField.attributedPlaceholder = NSAttributedString(string:"Email address", attributes:[NSAttributedString.Key.foregroundColor: UIColor.lightGray, NSAttributedString.Key.font :UIFont(name: "Roboto-Regular", size: 18)!])
+        let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.backgroundColor = UIColor.white
         textField.layer.cornerRadius = 5
+        textField.textColor = .black
+        textField.attributedPlaceholder = NSAttributedString(string:"Email address", attributes:[NSAttributedString.Key.foregroundColor: UIColor.lightGray, NSAttributedString.Key.font :UIFont(name: "Roboto-Regular", size: 18)!])
+        textField.setLeftPaddingPoints(15)
+        textField.font = UIFont(name: "Roboto-Regular", size: 18)
+        textField.keyboardType = .emailAddress
+        textField.keyboardAppearance = .dark
         textField.autocapitalizationType = .none
         textField.autocorrectionType = .no
-        textField.backgroundColor = UIColor.white
-        textField.setLeftPaddingPoints(15)
-        textField.textColor = .black
         return textField
     }()
     

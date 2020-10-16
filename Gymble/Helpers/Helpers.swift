@@ -44,6 +44,7 @@ extension UIView {
     }
 }
 
+@available(iOS 13.0, *)
 class MainWindow: UIWindow {
     let mainWindow = UIApplication.shared.connectedScenes
         .filter({$0.activationState == .foregroundActive})

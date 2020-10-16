@@ -15,7 +15,12 @@ class CustomImageView: UIImageView {
     var imageUrlString: String?
     
     func loadImageUsingUrlString(urlString: String) {
-        let activityIndicator = UIActivityIndicatorView(style: .medium)
+        let activityIndicator = UIActivityIndicatorView()
+        if #available(iOS 13.0, *) {
+            activityIndicator.style = .medium
+        } else {
+            activityIndicator.style = .gray
+        }
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         activityIndicator.hidesWhenStopped = true
         activityIndicator.assignColor(Colors.mainOrange)
@@ -62,7 +67,11 @@ class CustomImageView: UIImageView {
 
 extension UIActivityIndicatorView {
     func assignColor(_ color: UIColor) {
-        self.style = .medium
+        if #available(iOS 13.0, *) {
+            self.style = .medium
+        } else {
+            self.style = .gray
+        }
         self.color = color
     }
 }

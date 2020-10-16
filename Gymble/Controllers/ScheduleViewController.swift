@@ -20,8 +20,7 @@ class ScheduleViewController: UIViewController, UICollectionViewDataSource, UICo
     var userFullName: String?
     var userPhoneNumber: String?
     let uid = Auth.auth().currentUser?.uid
-    let activityView = UIActivityIndicatorView(
-        style: .large)
+    let activityView = UIActivityIndicatorView()
     var checkForBooking: CheckForbooking?{
         didSet{
             if checkForBooking?.is_active == false{
@@ -83,7 +82,11 @@ class ScheduleViewController: UIViewController, UICollectionViewDataSource, UICo
         indicator.color = Colors.mainOrange
         indicator.center = self.view.center
         indicator.hidesWhenStopped = true
-        indicator.style = .medium
+        if #available(iOS 13.0, *) {
+            indicator.style = .medium
+        } else {
+            indicator.style = .gray
+        }
         return indicator
     }()
     
@@ -313,7 +316,11 @@ class ScheduleViewController: UIViewController, UICollectionViewDataSource, UICo
         super.viewDidLoad()
         activityView.center = view.center
         activityView.hidesWhenStopped = true
-        activityView.style = .large
+        if #available(iOS 13.0, *) {
+            activityView.style = .large
+        } else {
+            activityView.style = .gray
+        }
         activityView.backgroundColor = Colors.mainBlack
         activityView.assignColor(Colors.mainOrange)
         getUserFullName()

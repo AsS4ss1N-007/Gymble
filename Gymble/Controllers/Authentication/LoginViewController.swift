@@ -209,8 +209,13 @@ class LoginViewController: UIViewController {
                     return
                 }
             }
-            guard let tabBarController = MainWindow().mainWindow?.rootViewController as? TabBarController else {return}
-            tabBarController.configureTabBarController()
+            if #available(iOS 13.0, *) {
+                guard let tabBarController = MainWindow().mainWindow?.rootViewController as? TabBarController else {return}
+                tabBarController.configureTabBarController()
+            } else {
+                guard let tabBarController = UIApplication.shared.keyWindow?.rootViewController as? TabBarController else {return}
+                tabBarController.configureTabBarController()
+            }
             self.loginButton.hideLoading()
             self.dismiss(animated: true, completion: nil)
             

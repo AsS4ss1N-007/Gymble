@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>641623901265-i49e5cc1ihg3n6o55fa5u54gg5h3al1o.apps.googleusercontent.com</string>
+	<string>641623901265-9a2s6bc0m3sit7oop912js5p45qn08n7.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.641623901265-i49e5cc1ihg3n6o55fa5u54gg5h3al1o</string>
+	<string>com.googleusercontent.apps.641623901265-9a2s6bc0m3sit7oop912js5p45qn08n7</string>
 	<key>API_KEY</key>
 	<string>AIzaSyAUfFfYrGnOnEiTAUT2yxRMNblLAHkfjBg</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>in.gymble.Gymble</string>
+	<string>in.gymble.gymbleios</string>
 	<key>PROJECT_ID</key>
 	<string>gymble-7eb1f</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,7 +29,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:641623901265:ios:1a2a220078b7a256f5e470</string>
+	<string>1:641623901265:ios:ccd1c2186f7cfa4cf5e470</string>
 	<key>DATABASE_URL</key>
 	<string>https://gymble-7eb1f.firebaseio.com</string>
 </dict>

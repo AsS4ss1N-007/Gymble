@@ -71,6 +71,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         textField.autocapitalizationType = .none
         textField.keyboardAppearance = .dark
         textField.autocorrectionType = .no
+        textField.keyboardType = .emailAddress
         textField.setLeftPaddingPoints(15)
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.attributedPlaceholder = NSAttributedString(string:"Email address", attributes:[NSAttributedString.Key.foregroundColor: UIColor.lightGray, NSAttributedString.Key.font :UIFont(name: "Roboto-Regular", size: 18)!])
@@ -309,8 +310,14 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                                             print(error.localizedDescription)
                                             return
                                         }
-                                        guard let tabBarController = MainWindow().mainWindow?.rootViewController as? TabBarController else {return}
-                                        tabBarController.configureTabBarController()
+                                        if #available(iOS 13.0, *) {
+                                            guard let tabBarController = MainWindow().mainWindow?.rootViewController as? TabBarController else {return}
+                                            tabBarController.configureTabBarController()
+                                        } else {
+                                            guard let tabBarController = UIApplication.shared.keyWindow?.rootViewController as? TabBarController else {return}
+                                            tabBarController.configureTabBarController()
+                                        }
+                                        
                                         self.signUpButton.hideLoading()
                                         self.dismiss(animated: true, completion: nil)
                                     }
