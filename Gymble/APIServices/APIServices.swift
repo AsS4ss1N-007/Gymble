@@ -151,7 +151,7 @@ class APIServices: NSObject {
     }
     
     func getGymMembershipPrices(gymID: String, completionHandler: @escaping(GymMembershipPrices) -> Void){
-        guard let url = URL(string: "http://13.233.119.231:3000/getGymSubcriptionDetails?gym_id=5f173fe19ab0b34d807de8bd") else {return}
+        guard let url = URL(string: "http://13.233.119.231:3000/getGymSubcriptionDetails?gym_id=\(gymID)") else {return}
         URLSession.shared.dataTask(with: url) { (data, response, err) in
             if let error = err{
                 print(error.localizedDescription)

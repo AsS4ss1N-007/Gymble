@@ -31,7 +31,6 @@ class MembershipListViewController: UIViewController, RazorpayProtocol{
         label.textColor = UIColor.white.withAlphaComponent(0.8)
         label.font = UIFont(name: "Roboto-Regular", size: 22)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Crossfit fitness gym"
         return label
     }()
     
@@ -148,7 +147,7 @@ class MembershipListViewController: UIViewController, RazorpayProtocol{
         guard let gymName = getMembership?.gym_name else {return}
         let options: [String:Any] = [
             "amount" : "\(membershipPrice)00", //mandatory in paise like:- 1000 paise ==  10 rs
-            "description": "Welcome tp the \(gymName)",
+            "description": "Welcome to the \(gymName)",
             "image": UIImage(named: "Gymble")!,
             "name": "Gymble",
             "prefill": [
