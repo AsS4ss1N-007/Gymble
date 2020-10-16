@@ -12,7 +12,7 @@ class ResetPasswordViewController: UIViewController {
     fileprivate let resetPasswordTextField: UITextField = {
        let textField = UITextField()
         textField.font = UIFont(name: "Roboto-Regular", size: 18)
-        textField.placeholder = "Email address"
+        textField.attributedPlaceholder = NSAttributedString(string:"Email address", attributes:[NSAttributedString.Key.foregroundColor: UIColor.lightGray, NSAttributedString.Key.font :UIFont(name: "Roboto-Regular", size: 18)!])
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.layer.cornerRadius = 5
         textField.autocapitalizationType = .none

@@ -9,6 +9,7 @@ import UIKit
 import Razorpay
 import Firebase
 import Alamofire
+import FirebaseAuth
 class MembershipListViewController: UIViewController, RazorpayProtocol{
     weak var razorpay: RazorpayCheckout?
     let rightNow = Date()

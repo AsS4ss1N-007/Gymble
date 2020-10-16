@@ -108,6 +108,12 @@ class Trainers: UICollectionViewCell {
         proInLabelLayout()
     }
     
+    override func prepareForReuse() {
+        imageView.image = nil
+        nameLabel.text = nil
+        proInLabel.text = nil
+    }
+    
     fileprivate func imageViewLayout(){
         addSubview(imageView)
         imageView.topAnchor.constraint(equalTo: topAnchor).isActive = true

@@ -64,6 +64,14 @@ class TimelineCell: UICollectionViewCell {
         bookingDateLayout()
     }
     
+    override func prepareForReuse() {
+        thumbnailImage.image = nil
+        slotTime.text = nil
+        bookingDateLabel.text = nil
+        checkInTimeLabel.text = nil
+        checkInDateLabel.text = nil
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

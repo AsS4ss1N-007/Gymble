@@ -10,6 +10,7 @@ import AVFoundation
 import UIKit
 import Alamofire
 import Firebase
+import FirebaseAuth
 class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!

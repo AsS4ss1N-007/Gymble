@@ -184,7 +184,6 @@ class DetailsSlotsCell: UICollectionViewCell {
         label.font = UIFont(name: "Roboto-Regular", size: 20)
         label.textAlignment = .center
         label.textColor = UIColor.white.withAlphaComponent(0.8)
-        label.text = "06:00"
         return label
     }()
     
@@ -195,6 +194,10 @@ class DetailsSlotsCell: UICollectionViewCell {
         layer.borderColor = UIColor.white.cgColor
         layer.borderWidth = 1
         slotLabelLayout()
+    }
+    
+    override func prepareForReuse() {
+        slotTimeLabel.text = nil
     }
     
     private func slotLabelLayout(){

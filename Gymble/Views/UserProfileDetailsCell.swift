@@ -33,6 +33,10 @@ class UserProfileDetailsCell: UICollectionViewCell {
         editButtonLayout()
     }
     
+    override func prepareForReuse() {
+        cellLabel.text = nil
+    }
+    
     private func cellLabelLayout(){
         addSubview(cellLabel)
         cellLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15).isActive = true

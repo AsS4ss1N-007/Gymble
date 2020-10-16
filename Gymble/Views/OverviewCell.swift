@@ -114,6 +114,15 @@ class OverviewCell: UICollectionViewCell {
         seperatorLayout()
         descriptionTextLayout()
     }
+    
+    
+    override func prepareForReuse() {
+        gymName.text = nil
+        addressLabel.text = nil
+        descriptionText.text = nil
+        joinButton.text = nil
+    }
+    
     private func seperatorLayout(){
         addSubview(seperator)
         seperator.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true

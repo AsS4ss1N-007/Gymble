@@ -68,6 +68,7 @@ UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.translatesAutoresizingMaskIntoConstraints = false
         cv.isUserInteractionEnabled = true
+        cv.showsHorizontalScrollIndicator = false
         cv.register(OverviewCell.self, forCellWithReuseIdentifier: "Tabs")
         cv.register(AmenitiesCell.self, forCellWithReuseIdentifier: "AmenitiesCell")
         cv.register(TimingsCell.self, forCellWithReuseIdentifier: "TimingsCell")

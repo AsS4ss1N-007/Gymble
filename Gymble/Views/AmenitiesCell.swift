@@ -82,6 +82,7 @@ class Amenities: UICollectionViewCell {
         image.layer.cornerRadius = 5
         image.backgroundColor = Colors.mainBlack
         image.clipsToBounds = true
+        image.contentMode = .scaleAspectFit
         return image
     }()
     
@@ -99,6 +100,11 @@ class Amenities: UICollectionViewCell {
         super.init(frame: frame)
         amenityImageLayout()
         amenityLabelLayout()
+    }
+    
+    override func prepareForReuse() {
+        amenityImage.image = nil
+        amenityLabel.text = nil
     }
     
     private func amenityImageLayout(){

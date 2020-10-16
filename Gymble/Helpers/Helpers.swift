@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 struct Colors {
     static let mainOrange = UIColor(red: 242/255, green: 56/255, blue: 15/255, alpha: 1)
     static let mainRed = UIColor(red: 217/255, green: 30/255, blue: 133/255, alpha: 1)
