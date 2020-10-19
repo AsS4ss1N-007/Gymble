@@ -313,6 +313,13 @@ class ScheduleViewController: UIViewController, UICollectionViewDataSource, UICo
         return stack
     }()
     
+    fileprivate let noInternet: UIImageView = {
+        let image = UIImageView(image: #imageLiteral(resourceName: "NoInternet"))
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.contentMode = .scaleAspectFit
+        return image
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         activityView.center = view.center
@@ -324,6 +331,27 @@ class ScheduleViewController: UIViewController, UICollectionViewDataSource, UICo
         }
         activityView.backgroundColor = Colors.mainBlack
         activityView.assignColor(Colors.mainOrange)
+        
+        checkForInternetConnection()
+    }
+    
+    func checkForInternetConnection(){
+        if NetworkMonitor.shared.isConnected{
+            configureUI()
+        }else{
+            noInternetImageLayout()
+        }
+    }
+    
+    func noInternetImageLayout(){
+        view.addSubview(noInternet)
+        noInternet.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        noInternet.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        noInternet.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        noInternet.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    }
+    
+    func configureUI(){
         getUserFullName()
         chekcSlotBooking()
         setupNavigationBar()
@@ -703,13 +731,13 @@ class ScheduleViewController: UIViewController, UICollectionViewDataSource, UICo
     
     func presentCameraSettings(){
         let alertController = UIAlertController (title: "Title", message: "Go to Settings?", preferredStyle: .alert)
-
+        
         let settingsAction = UIAlertAction(title: "Settings", style: .default) { (_) -> Void in
-
+            
             guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
                 return
             }
-
+            
             if UIApplication.shared.canOpenURL(settingsUrl) {
                 UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
                 })
@@ -718,7 +746,7 @@ class ScheduleViewController: UIViewController, UICollectionViewDataSource, UICo
         alertController.addAction(settingsAction)
         let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
         alertController.addAction(cancelAction)
-
+        
         present(alertController, animated: true, completion: nil)
         
     }

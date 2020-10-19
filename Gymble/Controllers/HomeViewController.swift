@@ -50,6 +50,13 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         return image
     }()
     
+    fileprivate let noInternet: UIImageView = {
+        let image = UIImageView(image: #imageLiteral(resourceName: "NoInternet"))
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.contentMode = .scaleAspectFit
+        return image
+    }()
+    
     fileprivate let locationLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
@@ -74,7 +81,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureUI()
+        checkForInternetConnection()
     }
     
     //MARK:- LayoutFunctions
@@ -128,6 +135,22 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         homeCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         homeCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         homeCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+    }
+    
+    func checkForInternetConnection(){
+        if NetworkMonitor.shared.isConnected{
+            configureUI()
+        }else{
+            noInternetImageLayout()
+        }
+    }
+    
+    func noInternetImageLayout(){
+        view.addSubview(noInternet)
+        noInternet.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        noInternet.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        noInternet.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        noInternet.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
     
     //MARK:- ControllerFunctions

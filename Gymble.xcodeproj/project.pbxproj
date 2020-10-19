@@ -11,6 +11,7 @@
 		181886982526517D0025F796 /* MembershipsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181886972526517D0025F796 /* MembershipsListCell.swift */; };
 		1818869B25265D7E0025F796 /* GymMembershipPrices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1818869A25265D7E0025F796 /* GymMembershipPrices.swift */; };
 		1847D6212539A8EF00A74467 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1847D6202539A8EF00A74467 /* GoogleService-Info.plist */; };
+		187623EC253DB49B00C8448D /* CheckForInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187623EB253DB49B00C8448D /* CheckForInternet.swift */; };
 		188E02F52525C9D1007998AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E02F42525C9D1007998AE /* AppDelegate.swift */; };
 		188E02F72525C9D1007998AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E02F62525C9D1007998AE /* SceneDelegate.swift */; };
 		188E02FE2525C9D3007998AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 188E02FD2525C9D3007998AE /* Assets.xcassets */; };
@@ -60,6 +61,7 @@
 		181886972526517D0025F796 /* MembershipsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipsListCell.swift; sourceTree = "<group>"; };
 		1818869A25265D7E0025F796 /* GymMembershipPrices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymMembershipPrices.swift; sourceTree = "<group>"; };
 		1847D6202539A8EF00A74467 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		187623EB253DB49B00C8448D /* CheckForInternet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckForInternet.swift; sourceTree = "<group>"; };
 		188E02F12525C9D1007998AE /* Gymble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gymble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		188E02F42525C9D1007998AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		188E02F62525C9D1007998AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			children = (
 				188E036A2525CF48007998AE /* Helpers.swift */,
 				188E036E2525CF68007998AE /* CustomImageView.swift */,
+				187623EB253DB49B00C8448D /* CheckForInternet.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				188E03A42525D059007998AE /* UserProfileDetailsCell.swift in Sources */,
 				188E02F52525C9D1007998AE /* AppDelegate.swift in Sources */,
 				188E037E2525CFB1007998AE /* SlotBookingModels.swift in Sources */,
+				187623EC253DB49B00C8448D /* CheckForInternet.swift in Sources */,
 				188E03922525D005007998AE /* TimingsCell.swift in Sources */,
 				188E03C32525D189007998AE /* UserProfileViewController.swift in Sources */,
 				188E036F2525CF68007998AE /* CustomImageView.swift in Sources */,

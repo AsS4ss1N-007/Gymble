@@ -25,6 +25,13 @@ class TimelineViewController: UIViewController{
         return refresh
     }()
     
+    fileprivate let noInternet: UIImageView = {
+        let image = UIImageView(image: #imageLiteral(resourceName: "NoInternet"))
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.contentMode = .scaleAspectFit
+        return image
+    }()
+    
     let timelineCV: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -36,6 +43,26 @@ class TimelineViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkForInternetConnection()
+    }
+    
+    func checkForInternetConnection(){
+        if NetworkMonitor.shared.isConnected{
+            configureUI()
+        }else{
+            noInternetImageLayout()
+        }
+    }
+    
+    func noInternetImageLayout(){
+        view.addSubview(noInternet)
+        noInternet.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        noInternet.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        noInternet.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        noInternet.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    }
+    
+    func configureUI(){
         timelineCV.addSubview(refreshControl)
         getTimelineData()
         setupNavigationBar()
