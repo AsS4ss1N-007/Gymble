@@ -23,7 +23,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
         imageView.backgroundColor = UIColor.white.withAlphaComponent(0.7)
-        imageView.image = #imageLiteral(resourceName: "Batman")
+        imageView.image = #imageLiteral(resourceName: "Bat")
         imageView.clipsToBounds = true
         return imageView
     }()
