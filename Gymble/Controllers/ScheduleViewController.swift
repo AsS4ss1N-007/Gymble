@@ -11,6 +11,7 @@ import Foundation
 import Firebase
 import Alamofire
 import FirebaseAuth
+import AVFoundation
 class ScheduleViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     let rightNow = Date()
     let calendar = Calendar.current
@@ -672,7 +673,54 @@ class ScheduleViewController: UIViewController, UICollectionViewDataSource, UICo
     
     @objc func showScannerVC(){
         let scannerVC = ScannerViewController()
-        self.present(scannerVC, animated: true, completion: nil)
+        let authStatus = AVCaptureDevice.authorizationStatus(for: .video)
+        switch authStatus {
+        case .denied:
+            print("access denied")
+            presentCameraSettings()
+            break
+        case .restricted:
+            print("access restricted")
+            presentCameraSettings()
+            break
+        case .authorized:
+            print("access authorized")
+            self.present(scannerVC, animated: true, completion: nil)
+            break
+        case .notDetermined:
+            AVCaptureDevice.requestAccess(for: .video) { (success) in
+                if success{
+                    print("permission granted")
+                }else{
+                    print("Permission not granted!")
+                }
+            }
+            break
+        default:
+            break
+        }
+    }
+    
+    func presentCameraSettings(){
+        let alertController = UIAlertController (title: "Title", message: "Go to Settings?", preferredStyle: .alert)
+
+        let settingsAction = UIAlertAction(title: "Settings", style: .default) { (_) -> Void in
+
+            guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+                return
+            }
+
+            if UIApplication.shared.canOpenURL(settingsUrl) {
+                UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
+                })
+            }
+        }
+        alertController.addAction(settingsAction)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        alertController.addAction(cancelAction)
+
+        present(alertController, animated: true, completion: nil)
+        
     }
     //MARK:- Api Requests
     

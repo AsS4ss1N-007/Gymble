@@ -23,7 +23,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
         imageView.backgroundColor = UIColor.white.withAlphaComponent(0.7)
-        imageView.image = #imageLiteral(resourceName: "Bat")
+        imageView.image = #imageLiteral(resourceName: "Batman")
         imageView.clipsToBounds = true
         return imageView
     }()
@@ -283,14 +283,14 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         guard let userProfileImage = profileImageView.image else {return}
         guard let repeatPassword = repeatPasswordTextfield.text else {return}
         
-        if phoneNumberTextfield.text?.count == 10 {
+        if phoneNumberTextfield.text?.count == 10 && (gender == "Male" || gender == "Female" && gender == "Others"){
             if (password == repeatPassword && firstNameTextfield.text?.isEmpty == false && lastNameTextfield.text?.isEmpty == false && phoneNumberTextfield.text?.isEmpty == false && genderTextfield.text?.isEmpty == false && phone.count == 10){
                 Auth.auth().createUser(withEmail: email, password: password) { (Authresult, err) in
                     if err == nil{
                         guard let uid = Authresult?.user.uid else {return}
                         var values = ["FirstName": firstName, "LastName": lastName, "EmailAddress": email, "PhoneNumber": "+91 \(phone)", "Gender": gender, "ProfileImage": ""]
-                        guard let imageData = userProfileImage.jpegData(compressionQuality: 0.4) else {return}
-                        let storageRef = Storage.storage().reference(forURL: "gs://gymble-7eb1f.appspot.com")
+                        guard let imageData = userProfileImage.jpegData(compressionQuality: 0.5) else {return}
+                        let storageRef = Storage.storage().reference(forURL: "gs://gymble-7eb1f.appspot.com/User Profile Images")
                         let storageProfileRef = storageRef.child("User Profile Images").child(uid)
                         let metadata = StorageMetadata()
                         metadata.contentType = "image/jpg"
@@ -301,7 +301,8 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                                 self.signUpButton.hideLoading()
                                 self.present(alert, animated: true, completion: nil)
-                                return}
+                                return
+                            }
                             storageProfileRef.downloadURL { (url, err) in
                                 if let metaImageURL = url?.absoluteString{
                                     values["ProfileImage"] = metaImageURL

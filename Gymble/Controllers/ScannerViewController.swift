@@ -124,9 +124,6 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                 switch (response.result) {
                 case .success:
                     if let status = response.response?.statusCode {
-                        print(status)
-                        print(response.result)
-                        print(response)
                         if status == 200{
                             let alert = UIAlertController(title: "Hoorayyy", message: "Check-In successful!", preferredStyle: .alert)
                             alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: {(alert: UIAlertAction!) in self.dismiss(animated: true, completion: nil)}))
