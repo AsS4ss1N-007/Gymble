@@ -11,11 +11,11 @@
 		181886982526517D0025F796 /* MembershipsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181886972526517D0025F796 /* MembershipsListCell.swift */; };
 		1818869B25265D7E0025F796 /* GymMembershipPrices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1818869A25265D7E0025F796 /* GymMembershipPrices.swift */; };
 		1847D6212539A8EF00A74467 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1847D6202539A8EF00A74467 /* GoogleService-Info.plist */; };
+		1854DE20253DF31400D2CC68 /* GymbleLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1854DE1F253DF31400D2CC68 /* GymbleLaunchScreen.storyboard */; };
 		187623EC253DB49B00C8448D /* CheckForInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187623EB253DB49B00C8448D /* CheckForInternet.swift */; };
 		188E02F52525C9D1007998AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E02F42525C9D1007998AE /* AppDelegate.swift */; };
 		188E02F72525C9D1007998AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E02F62525C9D1007998AE /* SceneDelegate.swift */; };
 		188E02FE2525C9D3007998AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 188E02FD2525C9D3007998AE /* Assets.xcassets */; };
-		188E03012525C9D3007998AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 188E02FF2525C9D3007998AE /* LaunchScreen.storyboard */; };
 		188E036B2525CF48007998AE /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E036A2525CF48007998AE /* Helpers.swift */; };
 		188E036F2525CF68007998AE /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E036E2525CF68007998AE /* CustomImageView.swift */; };
 		188E03722525CF8C007998AE /* APIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E03712525CF8C007998AE /* APIServices.swift */; };
@@ -61,12 +61,12 @@
 		181886972526517D0025F796 /* MembershipsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipsListCell.swift; sourceTree = "<group>"; };
 		1818869A25265D7E0025F796 /* GymMembershipPrices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymMembershipPrices.swift; sourceTree = "<group>"; };
 		1847D6202539A8EF00A74467 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1854DE1F253DF31400D2CC68 /* GymbleLaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GymbleLaunchScreen.storyboard; sourceTree = "<group>"; };
 		187623EB253DB49B00C8448D /* CheckForInternet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckForInternet.swift; sourceTree = "<group>"; };
 		188E02F12525C9D1007998AE /* Gymble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gymble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		188E02F42525C9D1007998AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		188E02F62525C9D1007998AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		188E02FD2525C9D3007998AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		188E03002525C9D3007998AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		188E03022525C9D3007998AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		188E036A2525CF48007998AE /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		188E036E2525CF68007998AE /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
@@ -151,8 +151,8 @@
 				188E03622525CED8007998AE /* Helpers */,
 				188E02F42525C9D1007998AE /* AppDelegate.swift */,
 				188E02F62525C9D1007998AE /* SceneDelegate.swift */,
+				1854DE1F253DF31400D2CC68 /* GymbleLaunchScreen.storyboard */,
 				188E02FD2525C9D3007998AE /* Assets.xcassets */,
-				188E02FF2525C9D3007998AE /* LaunchScreen.storyboard */,
 				188E03022525C9D3007998AE /* Info.plist */,
 				1847D6202539A8EF00A74467 /* GoogleService-Info.plist */,
 			);
@@ -321,10 +321,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				188E03012525C9D3007998AE /* LaunchScreen.storyboard in Resources */,
 				188E02FE2525C9D3007998AE /* Assets.xcassets in Resources */,
 				1847D6212539A8EF00A74467 /* GoogleService-Info.plist in Resources */,
 				188E03DF2525D56D007998AE /* Roboto-Light.ttf in Resources */,
+				1854DE20253DF31400D2CC68 /* GymbleLaunchScreen.storyboard in Resources */,
 				188E03E02525D56D007998AE /* Roboto-Medium.ttf in Resources */,
 				188E03E12525D56D007998AE /* Roboto-Regular.ttf in Resources */,
 			);
@@ -420,17 +420,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		188E02FF2525C9D3007998AE /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				188E03002525C9D3007998AE /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		188E03032525C9D3007998AE /* Debug */ = {
