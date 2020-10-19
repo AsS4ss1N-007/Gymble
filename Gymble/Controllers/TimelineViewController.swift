@@ -26,7 +26,7 @@ class TimelineViewController: UIViewController{
     }()
     
     fileprivate let noInternet: UIImageView = {
-        let image = UIImageView(image: #imageLiteral(resourceName: "NoInternet"))
+        let image = UIImageView(image: #imageLiteral(resourceName: "NOINTERNET"))
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFit
         return image
