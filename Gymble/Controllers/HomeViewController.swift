@@ -89,7 +89,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func configureUI(){
         setupNavigationBar()
         fetchGyms()
-        fetchUserData()
+        getUserData()
         navigationBarButtons()
         homeCVLayout()
         setupHomeCollectionViewDelegates()
@@ -168,10 +168,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
     
-    func fetchUserData(){
-        guard let userID = Auth.auth().currentUser?.uid else {return}
-        APIServices.sharedInstance.fetchUserData(uid: userID) { (userData) in
-            self.userData = userData
+    func getUserData(){
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        APIServices.sharedInstance.fetchUserData(uid: uid) { (getUserData) in
+            self.userData = getUserData
         }
     }
 }

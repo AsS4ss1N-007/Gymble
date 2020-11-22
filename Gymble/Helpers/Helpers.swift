@@ -263,12 +263,12 @@ extension Notification.Name{
 }
 
 extension AppDelegate{
-func signOutOldUser(){
-    if let _ = UserDefaults.standard.value(forKey: "isNewuser"){}else{
-        do{
-            UserDefaults.standard.set(true, forKey: "isNewuser")
-            try Auth.auth().signOut()
-        }catch{}
+    func signOutOldUser(){
+        if let _ = UserDefaults.standard.value(forKey: "isNewuser"){}else{
+            do{
+                UserDefaults.standard.set(true, forKey: "isNewuser")
+                try Auth.auth().signOut()
+            }catch{}
+        }
     }
-}
 }

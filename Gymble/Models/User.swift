@@ -21,6 +21,6 @@ struct User: Codable {
         self.email = dictionary["EmailAddress"] as? String ?? ""
         self.gender = dictionary["Gender"] as? String ?? ""
         self.phoneNumber = dictionary["PhoneNumber"] as? String ?? ""
-        self.userProfileImage = dictionary["ProfileImage"] as? String ?? ""
+        self.userProfileImage = dictionary["ProfileUrl"] as? String ?? ""
     }
 }

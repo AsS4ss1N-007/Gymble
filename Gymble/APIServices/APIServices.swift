@@ -63,16 +63,39 @@ class APIServices: NSObject {
     }
     
     func fetchUserData(uid: String, completionHandler: @escaping(User) -> Void){
-        REF_USERS.child(uid).observeSingleEvent(of: .value) { (snapshot) in
-            guard let dictonary = snapshot.value as? [String: Any] else {return}
-            let userData = User(dictionary: dictonary)
-            DispatchQueue.main.async {
+//        REF_USERS.child(uid).observeSingleEvent(of: .value) { (snapshot) in
+//            guard let dictonary = snapshot.value as? [String: Any] else {return}
+//            let userData = User(dictionary: dictonary)
+//            DispatchQueue.main.async {
+//                completionHandler(userData)
+//            }
+//
+//        }
+        let dataRef = Firestore.firestore().collection("Users").document(uid)
+        dataRef.getDocument { (snapshot, err) in
+            if err != nil{
+                return
+            }else{
+                guard let dictonary = snapshot?.data() else {return}
+                let userData = User(dictionary: dictonary)
                 completionHandler(userData)
             }
-            
         }
         
     }
+    
+//    func getUserData(uid: String, completionHandler: @escaping(User) -> Void){
+//        let dataRef = Firestore.firestore().collection("Users").document(uid)
+//        dataRef.getDocument { (snapshot, err) in
+//            if err != nil{
+//                return
+//            }else{
+//                guard let dictonary = snapshot?.data() else {return}
+//                let userData = User(dictionary: dictonary)
+//                completionHandler(userData)
+//            }
+//        }
+//    }
     
     func checkForSlotBooking(date: String, userID: String, completionHandler: @escaping(CheckForbooking) -> Void){
         let url = "http://13.233.119.231:3000/getSlotsByDate2?user_id=\(userID)&date=\(date)"

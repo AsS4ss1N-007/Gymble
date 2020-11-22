@@ -10,6 +10,7 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
+import FirebaseFirestore
 
 class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     var genderOptions : [String] = ["Male", "Female", "Others"]
@@ -306,7 +307,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                             storageProfileRef.downloadURL { (url, err) in
                                 if let metaImageURL = url?.absoluteString{
                                     values["ProfileImage"] = metaImageURL
-                                    Database.database().reference().child("Users").child(uid).updateChildValues(values) { (err, ref) in
+                                    Firestore.firestore().collection("Users").document(uid).setData(values) { (err) in
                                         if let error = err{
                                             print(error.localizedDescription)
                                             return
@@ -344,6 +345,24 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             return
         }
     }}
+
+//func readData(){
+//    // Add a new document in collection "cities"
+//    guard let uid = Auth.auth().currentUser?.uid else {return}
+//    db.collection("Users").document(uid).setData([
+//        "FirstName": "Los Angeles",
+//        "LastName": "CA",
+//        "PhoneNumber": "USA",
+//        "EmailAddress": "USA",
+//        "ProfileUrl": "USA"
+//    ]) { err in
+//        if let err = err {
+//            print("Error writing document: \(err)")
+//        } else {
+//            print("Document successfully written!")
+//        }
+//    }
+//}
 
 extension SignUpViewController{
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {

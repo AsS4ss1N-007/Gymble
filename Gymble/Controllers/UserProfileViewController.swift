@@ -298,7 +298,7 @@ extension UserProfileViewController: UIImagePickerControllerDelegate, UINavigati
             storageProfileRef.downloadURL { (url, err) in
                 if let metaImageURL = url?.absoluteString{
                     let values = ["ProfileImage": metaImageURL]
-                    Database.database().reference().child("Users").child(uid).updateChildValues(values) { (err, ref) in
+                    Firestore.firestore().collection("Users").document(uid).updateData(values) { (err) in
                         if let error = err{
                             print(error.localizedDescription)
                             return

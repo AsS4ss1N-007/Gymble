@@ -13,6 +13,7 @@
 		1847D6212539A8EF00A74467 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1847D6202539A8EF00A74467 /* GoogleService-Info.plist */; };
 		1854DE20253DF31400D2CC68 /* GymbleLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1854DE1F253DF31400D2CC68 /* GymbleLaunchScreen.storyboard */; };
 		187623EC253DB49B00C8448D /* CheckForInternet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187623EB253DB49B00C8448D /* CheckForInternet.swift */; };
+		188253862569BEDC00359592 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188253852569BEDC00359592 /* Constants.swift */; };
 		188E02F52525C9D1007998AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E02F42525C9D1007998AE /* AppDelegate.swift */; };
 		188E02F72525C9D1007998AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E02F62525C9D1007998AE /* SceneDelegate.swift */; };
 		188E02FE2525C9D3007998AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 188E02FD2525C9D3007998AE /* Assets.xcassets */; };
@@ -63,6 +64,7 @@
 		1847D6202539A8EF00A74467 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1854DE1F253DF31400D2CC68 /* GymbleLaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GymbleLaunchScreen.storyboard; sourceTree = "<group>"; };
 		187623EB253DB49B00C8448D /* CheckForInternet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckForInternet.swift; sourceTree = "<group>"; };
+		188253852569BEDC00359592 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		188E02F12525C9D1007998AE /* Gymble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gymble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		188E02F42525C9D1007998AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		188E02F62525C9D1007998AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				188E036A2525CF48007998AE /* Helpers.swift */,
 				188E036E2525CF68007998AE /* CustomImageView.swift */,
 				187623EB253DB49B00C8448D /* CheckForInternet.swift */,
+				188253852569BEDC00359592 /* Constants.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				188E03B72525D16D007998AE /* HomeViewController.swift in Sources */,
+				188253862569BEDC00359592 /* Constants.swift in Sources */,
 				188E03AE2525D13D007998AE /* SignUpViewController.swift in Sources */,
 				188E03AB2525D131007998AE /* LoginViewController.swift in Sources */,
 				188E03782525CFAC007998AE /* GymbleModels.swift in Sources */,
