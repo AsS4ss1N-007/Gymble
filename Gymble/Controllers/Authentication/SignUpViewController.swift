@@ -289,7 +289,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                 Auth.auth().createUser(withEmail: email, password: password) { (Authresult, err) in
                     if err == nil{
                         guard let uid = Authresult?.user.uid else {return}
-                        var values = ["FirstName": firstName, "LastName": lastName, "EmailAddress": email, "PhoneNumber": "+91 \(phone)", "Gender": gender, "ProfileImage": ""]
+                        var values = ["FirstName": firstName, "LastName": lastName, "EmailAddress": email, "PhoneNumber": "+91 \(phone)", "Gender": gender, "ProfileUrl": ""]
                         guard let imageData = userProfileImage.jpegData(compressionQuality: 0.5) else {return}
                         let storageRef = Storage.storage().reference(forURL: "gs://gymble-7eb1f.appspot.com/User Profile Images")
                         let storageProfileRef = storageRef.child("User Profile Images").child(uid)
@@ -306,7 +306,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                             }
                             storageProfileRef.downloadURL { (url, err) in
                                 if let metaImageURL = url?.absoluteString{
-                                    values["ProfileImage"] = metaImageURL
+                                    values["ProfileUrl"] = metaImageURL
                                     Firestore.firestore().collection("Users").document(uid).setData(values) { (err) in
                                         if let error = err{
                                             print(error.localizedDescription)
