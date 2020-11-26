@@ -56,6 +56,10 @@
 			</array>
 		</dict>
 	</dict>
+    <key>LSApplicationQueriesSchemes</key><array>
+        <string>tez</string>
+        <string>phonepe</string>
+        <string>paytmmp</string></array>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>

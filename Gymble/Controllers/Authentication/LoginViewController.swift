@@ -124,7 +124,6 @@ class LoginViewController: UIViewController {
         forgotPasswordButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
         forgotPasswordButton.widthAnchor.constraint(equalToConstant: 126).isActive = true
         forgotPasswordButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor).isActive = true
-        //        forgotPasswordButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16).isActive = true
     }
     
     private func loginButtonLayout(){

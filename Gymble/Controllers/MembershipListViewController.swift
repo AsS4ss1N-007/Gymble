@@ -179,13 +179,15 @@ extension MembershipListViewController: UICollectionViewDataSource, UICollection
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Price", for: indexPath) as! MembershipListsCell
-        let membershipArray = ["Monthly", "Quarterly", "Half-Yearly", "Annually"]
-        cell.timeLabel.text = membershipArray[indexPath.item]
+        let membershipMonths = "Month"
+        cell.timeLabel.text = membershipMonths
         if let duration = getMembership?.subscriptions[indexPath.item].duration{
             if duration == 1{
                 cell.perMonthLabel.text = "/" + "\(duration) month"
+                cell.timeLabel.text = "\(duration) \(membershipMonths)"
             }else {
                 cell.perMonthLabel.text = "/" + "\(duration) months"
+                cell.timeLabel.text = "\(duration) \(membershipMonths)s"
             }
         }
         if let price = getMembership?.subscriptions[indexPath.item].price{
@@ -199,24 +201,27 @@ extension MembershipListViewController: UICollectionViewDataSource, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as? MembershipListsCell
-        guard let price = cell?.rateLabel.text else {return}
-        selectedPrice = price
+        if let plan = getMembership?.subscriptions[indexPath.item].duration{
+            selectedPlan = plan * 30
+        }
+        if let price = getMembership?.subscriptions[indexPath.item].price {
+            selectedPrice = price
+        }
         
-        if indexPath.item == 0{
-            selectedPlan = (1 * 30)
-        }
-        else if indexPath.item == 1{
-            selectedPlan = (3 * 30)
-        }
-        else if indexPath.item == 2{
-            selectedPlan = (6 * 30)
-        }
-        else if indexPath.item == 3{
-            selectedPlan = (12 * 30)
-        }else{
-            selectedPlan = 0
-        }
+//        if indexPath.item == 0{
+//            selectedPlan = (1 * 30)
+//        }
+//        else if indexPath.item == 1{
+//            selectedPlan = (3 * 30)
+//        }
+//        else if indexPath.item == 2{
+//            selectedPlan = (6 * 30)
+//        }
+//        else if indexPath.item == 3{
+//            selectedPlan = (12 * 30)
+//        }else{
+//            selectedPlan = 0
+//        }
     }
 }
 
@@ -239,7 +244,7 @@ extension MembershipListViewController: RazorpayPaymentCompletionProtocol{
         guard let firstName = userData?.firstName else {return}
         guard let lastName = userData?.lastName else {return}
         guard let phoneNumber = userData?.phoneNumber else {return}
-        guard let plan = selectedPlan  else {return}
+        guard let plan = selectedPlan else {return}
         guard let email = userData?.email else {return}
         let modifiedDate = Calendar.current.date(byAdding: .day, value: plan, to: rightNow)!
         let parameters: [String : Any] = [
@@ -256,7 +261,6 @@ extension MembershipListViewController: RazorpayPaymentCompletionProtocol{
         print(parameters)
         AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: [:]).responseJSON {
             response in
-//            print("DEBUG: \(response.response?.statusCode)")
             switch (response.result) {
             case .success:
                 print(response)
