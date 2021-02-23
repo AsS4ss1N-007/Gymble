@@ -11,6 +11,7 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
+import FirebaseFirestore
 protocol SetUserProfileImageOnHome {
     func setUserProfile(image: UIImage)
 }

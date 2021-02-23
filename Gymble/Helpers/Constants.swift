@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import FirebaseFirestore
 
 struct FirestoreReferenceManagement {
     static let db = Firestore.firestore()

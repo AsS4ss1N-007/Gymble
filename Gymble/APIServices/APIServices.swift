@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseFirestore
 
 let DB_REF = Database.database().reference()
 let REF_USERS = DB_REF.child("Users")
